@@ -12,7 +12,50 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="assets/css/styles.css" rel="stylesheet"/>
-</head>
+<style>
+.primary-nav .nav-admin-login{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:10px 13px;
+  border:1px solid rgba(97,25,31,.25);
+  border-radius:12px;
+  background:rgba(97,25,31,.055);
+  color:#641b22;
+  font-weight:600;
+  white-space:nowrap;
+  text-decoration:none;
+  transition:all .2s ease;
+}
+.primary-nav .nav-admin-login:hover{
+  background:rgba(97,25,31,.11);
+  border-color:rgba(97,25,31,.42);
+  transform:translateY(-1px);
+}
+.primary-nav .nav-admin-login svg{
+  width:14px;
+  height:14px;
+  flex:0 0 14px;
+}
+@media (max-width:1180px){
+  .primary-nav .nav-admin-login span{display:none;}
+  .primary-nav .nav-admin-login{
+    width:40px;
+    height:40px;
+    padding:0;
+  }
+}
+@media (max-width:980px){
+  .primary-nav .nav-admin-login span{display:inline;}
+  .primary-nav .nav-admin-login{
+    width:100%;
+    height:auto;
+    padding:11px 14px;
+    justify-content:flex-start;
+  }
+}
+</style></head>
 <body data-page="home">
 <a class="skip-link" href="#main">Lewati ke konten utama</a>
 <div class="utility-bar">
@@ -44,7 +87,11 @@
 <a href="#tentang">Tentang</a>
 <a data-nav="struktur" href="struktur.html">Struktur</a>
 <a href="#program">Program</a>
-<a data-nav="mkpk" href="mkpk.html">MKPK</a><a data-nav="transparansi" href="transparansi.html">Transparansi</a>
+<a data-nav="mkpk" href="mkpk.html">MKPK</a><a data-nav="transparansi" href="transparansi.html">Transparansi</a><a aria-label="Login Administrator" class="nav-admin-login" href="admin/login.html"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
+<path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
+<rect height="10" rx="2.5" stroke="currentColor" stroke-width="1.8" width="14" x="5" y="10"></rect>
+<path d="M12 14v2.5" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"></path>
+</svg><span>Login Admin</span></a>
 <a class="nav-cta" data-nav="aspirasi" href="aspirasi.html">Sampaikan Aspirasi</a>
 </nav>
 </div>
