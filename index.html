@@ -12,6 +12,45 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="assets/css/styles.css" rel="stylesheet"/>
+
+<style>
+  .utility-admin-login{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-left:8px;
+    padding:6px 11px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:999px;
+    background:rgba(255,255,255,.10);
+    color:#fff;
+    font-weight:600;
+    text-decoration:none;
+    line-height:1;
+    transition:background .2s ease,border-color .2s ease,transform .2s ease;
+  }
+  .utility-admin-login:hover{
+    background:rgba(255,255,255,.18);
+    border-color:rgba(255,255,255,.45);
+    transform:translateY(-1px);
+  }
+  .utility-admin-login svg{
+    width:13px;
+    height:13px;
+    flex:0 0 auto;
+  }
+  @media (max-width:720px){
+    .utility-admin-login span{display:none;}
+    .utility-admin-login{
+      width:30px;
+      height:30px;
+      padding:0;
+      justify-content:center;
+      margin-left:auto;
+    }
+  }
+</style>
+
 </head>
 <body data-page="home">
 <a class="skip-link" href="#main">Lewati ke konten utama</a>
