@@ -8,6 +8,7 @@ Prototipe website statis responsif untuk BEM Keluarga Mahasiswa Fakultas Kedokte
 - `struktur.html` — struktur presidium, 10 kementerian, pencarian bidang, serta struktur pendukung generik.
 - `transparansi.html` — dashboard kinerja, realisasi anggaran, aspirasi, tren, dan dokumen publik.
 - `aspirasi.html` — alur pengaduan dan formulir aspirasi prototipe.
+- `mkpk.html` — simulator interaktif rekognisi Mata Kuliah Penguatan Kompetensi (MKPK) untuk kegiatan mahasiswa.
 
 ## Menjalankan secara lokal
 
@@ -46,3 +47,38 @@ Kemudian buka `http://localhost:8080`.
 ## Aset logo
 
 Aset logo pada folder `assets/img` berasal dari berkas yang diberikan untuk kebutuhan prototipe. Hak penggunaan dan publikasinya mengikuti ketentuan masing-masing institusi dan organisasi.
+
+
+## Penempatan file Simulator MKPK
+
+Jangan menaruh `mkpk.html` di subfolder lain. Struktur yang benar adalah:
+
+```text
+bem-fk-unhas/
+├── index.html
+├── struktur.html
+├── transparansi.html
+├── aspirasi.html
+├── mkpk.html                  # halaman simulator, sejajar dengan index.html
+├── assets/
+│   ├── css/
+│   │   └── styles.css        # style lama + style simulator MKPK
+│   ├── js/
+│   │   ├── main.js
+│   │   └── mkpk.js           # logika simulator interaktif
+│   ├── docs/
+│   │   └── rubrik-mkpk-edisi-3.pdf
+│   └── img/
+│       └── ...
+└── README.md
+```
+
+Jika website lama sudah di-host, cara paling aman adalah mengunggah isi paket revisi dengan struktur folder yang sama. File `mkpk.html` harus berada di **root website**, `mkpk.js` harus berada di **`assets/js/`**, dan PDF rubrik berada di **`assets/docs/`**. Jangan memindahkan file JavaScript atau PDF tanpa mengubah path pada HTML.
+
+## Catatan Simulator MKPK
+
+- Simulator hanya memasukkan klaster kegiatan mahasiswa dari rubrik dan tidak memasukkan **Kegiatan Berbasis Fakultas** yang memerlukan kurasi/persetujuan universitas.
+- Konversi dasar mengikuti ketentuan rubrik `1 SKS = 2.700 menit`.
+- Untuk kegiatan dengan koefisien, form akan meminta parameter yang relevan seperti jabatan, cakupan organisasi, durasi, skala kegiatan, posisi dalam tim, kategori jurnal, atau tingkat partisipasi.
+- Hasil adalah estimasi dan bukan keputusan akademik resmi. Validasi dokumen dan persetujuan pihak universitas/fakultas tetap diperlukan.
+- Beberapa bagian rubrik memiliki contoh simulasi dan tabel rinci yang tidak selalu sepenuhnya konsisten satu sama lain. Simulator menggunakan tabel activity hours/koefisien rinci sebagai basis utama dan menampilkan disclaimer agar hasil tetap diperlakukan sebagai estimasi.
