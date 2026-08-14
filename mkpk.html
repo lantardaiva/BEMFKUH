@@ -67,24 +67,100 @@
 <section class="section mkpk-simulator-section" id="simulator">
 <div class="container">
 <div class="section-heading reveal">
-<div><div class="eyebrow"><span></span>Simulasi Interaktif</div><h2>Pilih kegiatan. Isi capaian. Lihat estimasinya.</h2></div>
-<p>Simulator memprioritaskan aktivitas kemahasiswaan yang tercantum dalam rubrik, mulai dari kompetisi dan organisasi hingga publikasi, pengabdian, serta pengembangan minat dan bakat.</p>
+<div><div class="eyebrow"><span></span>Simulasi Interaktif</div><h2>Mulai dari program internal atau pilih kegiatan secara manual.</h2></div>
+<p>Program internal yang telah dipetakan oleh administrator dapat langsung membuka aktivitas rubrik yang relevan. Untuk aktivitas lain, gunakan pilihan klaster seperti sebelumnya.</p>
 </div>
 <div class="mkpk-workspace">
 <div class="mkpk-builder reveal">
-<div class="mkpk-step">
-<div class="mkpk-step-head"><span>01</span><div><strong>Pilih klaster kegiatan</strong><small>Mulai dari jenis aktivitas yang paling sesuai.</small></div></div>
+<div class="mkpk-step mkpk-source-step" id="source-step">
+<div class="mkpk-step-head">
+<span>01</span>
+<div>
+<strong>Pilih sumber kegiatan</strong>
+<small>Gunakan program internal jika kegiatan sudah didaftarkan oleh administrator.</small>
+</div>
+</div>
+<div class="mkpk-mode-grid" id="mkpk-mode-grid">
+<button class="mkpk-mode-card mkpk-mode-card--internal" data-mkpk-mode="internal" type="button">
+<div class="mkpk-mode-icon">⌂</div>
+<div>
+<small>Jalur cepat</small>
+<strong>Program Internal KEMA</strong>
+<p>Pilih program kerja yang telah dipetakan ke aktivitas pada Rubrik MKPK.</p>
+</div>
+<b>→</b>
+</button>
+<button class="mkpk-mode-card" data-mkpk-mode="external" type="button">
+<div class="mkpk-mode-icon">◇</div>
+<div>
+<small>Simulator umum</small>
+<strong>Kegiatan Lainnya</strong>
+<p>Kompetisi, organisasi, seminar, volunteer, publikasi, dan aktivitas lainnya.</p>
+</div>
+<b>→</b>
+</button>
+</div>
+<div class="mkpk-mode-current" hidden="" id="mkpk-mode-current">
+<span>Mode simulasi</span>
+<div>
+<button data-switch-mode="internal" type="button">Program Internal</button>
+<button data-switch-mode="external" type="button">Kegiatan Lainnya</button>
+</div>
+</div>
+</div><div class="mkpk-step mkpk-internal-step" hidden="" id="internal-program-step">
+<div class="mkpk-step-head">
+<span>02</span>
+<div>
+<strong>Pilih program internal</strong>
+<small>Daftar ini berasal dari Program Kerja MKPK yang dipublikasikan melalui Admin Panel.</small>
+</div>
+</div>
+<div class="mkpk-internal-toolbar">
+<label class="mkpk-search-field" for="internal-program-search">
+<span>Cari program kerja</span>
+<div><b>⌕</b><input autocomplete="off" id="internal-program-search" placeholder="Cari nama program..." type="search"/></div>
+</label>
+<label class="mkpk-internal-filter">
+<span>Kementerian</span>
+<select id="internal-ministry-filter"><option value="all">Semua kementerian</option></select>
+</label>
+</div>
+<div class="mkpk-internal-program-grid" id="internal-program-grid"></div>
+<div class="mkpk-internal-empty" hidden="" id="internal-program-empty">
+<strong>Belum ada program internal yang tersedia.</strong>
+<p>Administrator dapat menambahkan dan mempublikasikan program melalui menu <b>Program Kerja MKPK</b>.</p>
+</div>
+<div class="mkpk-internal-role-panel" hidden="" id="internal-role-panel">
+<div class="mkpk-internal-program-selected">
+<span id="internal-selected-ministry">Program Internal</span>
+<strong id="internal-selected-name">—</strong>
+<p id="internal-selected-description"></p>
+</div>
+<div class="mkpk-internal-role-control">
+<label class="mkpk-field">
+<span>Peran Anda dalam program</span>
+<select id="internal-role-select"><option value="">Pilih peran...</option></select>
+<small>Peran menentukan aktivitas rubrik yang akan dibuka secara otomatis.</small>
+</label>
+<div class="mkpk-internal-mapping" id="internal-mapping-preview">
+<small>Pemetaan rubrik</small>
+<strong>Pilih peran untuk melihat aktivitas MKPK.</strong>
+</div>
+</div>
+</div>
+</div><div class="mkpk-step" hidden="" id="category-step">
+<div class="mkpk-step-head"><span>02</span><div><strong>Pilih klaster kegiatan</strong><small>Untuk kegiatan di luar program internal KEMA FK Unhas.</small></div></div>
 <div class="mkpk-category-grid" id="mkpk-category-grid"></div>
 </div>
-<div class="mkpk-step mkpk-step--locked" id="activity-step">
-<div class="mkpk-step-head"><span>02</span><div><strong>Pilih kegiatan</strong><small>Cari atau pilih aktivitas dari rubrik.</small></div></div>
+<div class="mkpk-step mkpk-step--locked" hidden="" id="activity-step">
+<div class="mkpk-step-head"><span>03</span><div><strong>Pilih kegiatan</strong><small>Cari atau pilih aktivitas dari rubrik.</small></div></div>
 <div class="mkpk-activity-picker">
 <label class="mkpk-search-field" for="mkpk-search"><span>Cari kegiatan</span><div><b>⌕</b><input autocomplete="off" id="mkpk-search" placeholder="Contoh: kepengurusan, seminar, PKM..." type="search"/></div></label>
 <div aria-label="Daftar kegiatan" class="mkpk-activity-list" id="mkpk-activity-list" role="listbox"></div>
 </div>
 </div>
 <div class="mkpk-step mkpk-step--locked" id="detail-step">
-<div class="mkpk-step-head"><span>03</span><div><strong>Sesuaikan detail capaian</strong><small id="detail-caption">Pertanyaan mengikuti ketentuan kegiatan.</small></div></div>
+<div class="mkpk-step-head"><span>04</span><div><strong>Sesuaikan detail capaian</strong><small id="detail-caption">Pertanyaan mengikuti ketentuan kegiatan.</small></div></div>
 <div class="mkpk-selected-activity" hidden="" id="selected-activity"></div>
 <form class="mkpk-detail-form" id="mkpk-detail-form"></form>
 </div>
@@ -106,7 +182,7 @@
 <div class="mkpk-course-list" id="result-courses"></div>
 <div class="mkpk-result-subtitle">Dokumen &amp; catatan</div>
 <div class="mkpk-result-notes" id="result-notes"></div>
-<button class="button button--primary mkpk-add-plan" id="mkpk-add-plan" type="button">+ Tambahkan ke Rencana Saya</button>
+<button class="button button--primary mkpk-add-plan" id="mkpk-add-plan" type="button">+ Tambahkan ke Rencana Rekognisi</button>
 </div>
 </aside>
 </div>
@@ -115,8 +191,8 @@
 <section class="section section--soft" id="rencana">
 <div class="container">
 <div class="section-heading reveal">
-<div><div class="eyebrow"><span></span>Rencana Saya</div><h2>Gabungkan beberapa kegiatan dalam satu simulasi.</h2></div>
-<p>Anda dapat menambahkan beberapa aktivitas untuk melihat akumulasi SKS dan irisan MKPK. Akumulasi ini bukan penetapan rekognisi resmi.</p>
+<div><div class="eyebrow"><span></span>Rencana Rekognisi</div><h2>Gabungkan hasil program internal dan kegiatan lainnya.</h2></div>
+<p>Setiap hasil yang ditambahkan akan masuk ke simulasi gabungan. Total tetap merupakan estimasi dan tidak berarti seluruh SKS dapat dialokasikan bebas ke satu MKPK.</p>
 </div>
 <div class="mkpk-plan-grid">
 <div class="mkpk-plan-list reveal" id="mkpk-plan-list"><div class="mkpk-plan-empty" id="mkpk-plan-empty">Belum ada kegiatan yang ditambahkan.</div></div>

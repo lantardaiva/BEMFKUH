@@ -4,15 +4,38 @@
   const METRICS_KEY = "bem_transparency_metrics";
   const DOCS_KEY = "bem_transparency_documents";
   const STRUCTURE_KEY = "bem_structure_data";
+  const PROGRAMS_KEY = "bem_internal_mkpk_programs";
   const DB_NAME = "BEMKemaFKDemoDB";
   const DB_VERSION = 1;
   const STORE = "files";
   const METRICS_SEED = {"programTotal": 34, "programCompleted": 21, "programRunning": 9, "programScheduled": 4, "programDelayed": 0, "budgetPercent": 67, "budgetRealized": 286100000, "budgetTotal": 428500000, "aspirationPercent": 84, "aspirationTotal": 128, "aspirationVerified": 116, "aspirationInProcess": 38, "aspirationCompleted": 78, "responseDays": 2.3, "period": "Semester I 2026", "updatedAt": "2026-08-15T00:00:00+08:00"};
   const DOCS_SEED = [{"id": "doc-1", "category": "keuangan", "title": "Laporan Realisasi Anggaran Semester I", "period": "Semester I 2026", "description": "Ringkasan pendapatan, belanja, saldo, dan catatan realisasi per bidang.", "published": true, "type": "PDF", "fileKey": null, "fileName": "", "externalUrl": "", "createdAt": "2026-08-15T00:00:00+08:00"}, {"id": "doc-2", "category": "kinerja", "title": "Laporan Kinerja Kabinet Triwulan II", "period": "Triwulan II 2026", "description": "Capaian indikator, progres program, kendala, dan rencana tindak lanjut.", "published": true, "type": "PDF", "fileKey": null, "fileName": "", "externalUrl": "", "createdAt": "2026-08-15T00:00:00+08:00"}, {"id": "doc-3", "category": "regulasi", "title": "SOP Pengelolaan Aspirasi Mahasiswa", "period": "2026", "description": "Alur penerimaan, klasifikasi, perlindungan identitas, eskalasi, dan penutupan laporan.", "published": true, "type": "SOP", "fileKey": null, "fileName": "", "externalUrl": "", "createdAt": "2026-08-15T00:00:00+08:00"}, {"id": "doc-4", "category": "regulasi", "title": "Pedoman Administrasi dan Kesekretariatan", "period": "2026", "description": "Standar surat, pengarsipan, inventaris, notulensi, dan pengelolaan dokumen.", "published": true, "type": "DOC", "fileKey": null, "fileName": "", "externalUrl": "", "createdAt": "2026-08-15T00:00:00+08:00"}, {"id": "doc-5", "category": "keuangan", "title": "Ringkasan Arus Kas Triwulan II", "period": "Triwulan II 2026", "description": "Rekap transaksi masuk dan keluar beserta klasifikasi sumber serta penggunaan dana.", "published": true, "type": "XLS", "fileKey": null, "fileName": "", "externalUrl": "", "createdAt": "2026-08-15T00:00:00+08:00"}, {"id": "doc-6", "category": "kinerja", "title": "Matriks Program Kerja Kabinet Metamorfosis", "period": "Tahunan 2026", "description": "Daftar program, indikator, jadwal, penanggung jawab, status, dan evaluasi singkat.", "published": true, "type": "XLS", "fileKey": null, "fileName": "", "externalUrl": "", "createdAt": "2026-08-15T00:00:00+08:00"}];
   const STRUCTURE_SEED = {"ministries": {"01-keagamaan": {"name": "Keagamaan", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-01.jpg", "id": "01-keagamaan-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-02.jpg", "id": "01-keagamaan-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-03.jpg", "id": "01-keagamaan-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-04.jpg", "id": "01-keagamaan-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-05.jpg", "id": "01-keagamaan-member-5", "photoKey": null}]}, "02-psdm": {"name": "Pengembangan Sumber Daya Manusia", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-01.jpg", "id": "02-psdm-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-02.jpg", "id": "02-psdm-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-03.jpg", "id": "02-psdm-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-04.jpg", "id": "02-psdm-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-05.jpg", "id": "02-psdm-member-5", "photoKey": null}]}, "03-kajian-strategis-advokasi": {"name": "Kajian Strategis dan Advokasi", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-01.jpg", "id": "03-kajian-strategis-advokasi-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-02.jpg", "id": "03-kajian-strategis-advokasi-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-03.jpg", "id": "03-kajian-strategis-advokasi-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-04.jpg", "id": "03-kajian-strategis-advokasi-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-05.jpg", "id": "03-kajian-strategis-advokasi-member-5", "photoKey": null}]}, "04-komunikasi-informasi": {"name": "Komunikasi dan Informasi", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-01.jpg", "id": "04-komunikasi-informasi-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-02.jpg", "id": "04-komunikasi-informasi-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-03.jpg", "id": "04-komunikasi-informasi-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-04.jpg", "id": "04-komunikasi-informasi-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-05.jpg", "id": "04-komunikasi-informasi-member-5", "photoKey": null}]}, "05-hubungan-luar": {"name": "Hubungan Luar", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-01.jpg", "id": "05-hubungan-luar-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-02.jpg", "id": "05-hubungan-luar-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-03.jpg", "id": "05-hubungan-luar-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-04.jpg", "id": "05-hubungan-luar-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-05.jpg", "id": "05-hubungan-luar-member-5", "photoKey": null}]}, "06-administrasi-kesekretariatan": {"name": "Administrasi dan Kesekretariatan", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-01.jpg", "id": "06-administrasi-kesekretariatan-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-02.jpg", "id": "06-administrasi-kesekretariatan-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-03.jpg", "id": "06-administrasi-kesekretariatan-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-04.jpg", "id": "06-administrasi-kesekretariatan-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-05.jpg", "id": "06-administrasi-kesekretariatan-member-5", "photoKey": null}]}, "07-keuangan": {"name": "Keuangan", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-01.jpg", "id": "07-keuangan-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-02.jpg", "id": "07-keuangan-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-03.jpg", "id": "07-keuangan-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-04.jpg", "id": "07-keuangan-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-05.jpg", "id": "07-keuangan-member-5", "photoKey": null}]}, "08-pendidikan-profesi": {"name": "Pendidikan dan Profesi", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-01.jpg", "id": "08-pendidikan-profesi-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-02.jpg", "id": "08-pendidikan-profesi-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-03.jpg", "id": "08-pendidikan-profesi-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-04.jpg", "id": "08-pendidikan-profesi-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-05.jpg", "id": "08-pendidikan-profesi-member-5", "photoKey": null}]}, "09-pengabdian-masyarakat": {"name": "Pengabdian Masyarakat", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-01.jpg", "id": "09-pengabdian-masyarakat-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-02.jpg", "id": "09-pengabdian-masyarakat-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-03.jpg", "id": "09-pengabdian-masyarakat-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-04.jpg", "id": "09-pengabdian-masyarakat-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-05.jpg", "id": "09-pengabdian-masyarakat-member-5", "photoKey": null}]}, "10-minat-bakat": {"name": "Pengabdian Minat dan Bakat", "members": [{"name": "Nama Anggota 01", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-01.jpg", "id": "10-minat-bakat-member-1", "photoKey": null}, {"name": "Nama Anggota 02", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-02.jpg", "id": "10-minat-bakat-member-2", "photoKey": null}, {"name": "Nama Anggota 03", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-03.jpg", "id": "10-minat-bakat-member-3", "photoKey": null}, {"name": "Nama Anggota 04", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-04.jpg", "id": "10-minat-bakat-member-4", "photoKey": null}, {"name": "Nama Anggota 05", "role": "Anggota", "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-05.jpg", "id": "10-minat-bakat-member-5", "photoKey": null}]}}, "specialInstitutions": [{"code": "LK01", "name": "Staf Ahli Presidium", "description": "Memberikan masukan substantif pada isu strategis dan membantu proyek lintas kementerian.", "id": "special-1"}, {"code": "LK02", "name": "Badan Pengawasan Internal", "description": "Memantau kepatuhan prosedur, mutu dokumentasi, dan konsistensi pelaporan kinerja.", "id": "special-2"}, {"code": "LK03", "name": "Koordinator Program Strategis", "description": "Mengelola program prioritas yang melibatkan beberapa kementerian dan mitra eksternal.", "id": "special-3"}, {"code": "LK04", "name": "Tim Ad Hoc", "description": "Dibentuk untuk kebutuhan tertentu dengan mandat, target, dan periode kerja yang terbatas.", "id": "special-4"}]};
+  const PROGRAMS_SEED = [{"id": "internal-demo-1", "name": "Demo Program Internal", "ministry": "09-pengabdian-masyarakat", "ministryLabel": "Pengabdian Masyarakat", "year": "2026", "description": "Contoh konfigurasi program internal untuk mendemonstrasikan pemetaan peran ke aktivitas pada Rubrik MKPK.", "published": true, "demo": true, "mappings": [{"id": "map-demo-1", "roleLabel": "Ketua Pelaksana", "activityId": "committee"}, {"id": "map-demo-2", "roleLabel": "Koordinator / Penanggung Jawab", "activityId": "committee"}, {"id": "map-demo-3", "roleLabel": "Anggota Panitia", "activityId": "committee"}, {"id": "map-demo-4", "roleLabel": "Volunteer", "activityId": "social-service"}], "createdAt": "2026-08-15T00:00:00+08:00", "updatedAt": "2026-08-15T00:00:00+08:00"}];
+  const MKPK_ACTIVITY_OPTIONS = [{"id": "onmipa", "name": "Olimpiade Nasional MIPA (ONMIPA)"}, {"id": "nudc", "name": "NUDC / KDMI"}, {"id": "pilmapres", "name": "Pemilihan Mahasiswa Berprestasi (PILMAPRES)"}, {"id": "pkm", "name": "PKM – PIMNAS"}, {"id": "kri", "name": "Kontes Robot Indonesia (KRI)"}, {"id": "kmhe", "name": "Kontes Mobil Hemat Energi (KMHE)"}, {"id": "kki", "name": "Kontes Kapal Indonesia (KKI)"}, {"id": "kji", "name": "Kompetisi Jembatan Indonesia (KJI)"}, {"id": "kbgi", "name": "Kompetisi Bangunan Gedung Indonesia (KBGI)"}, {"id": "krti", "name": "Kontes Robot Terbang Indonesia (KRTI)"}, {"id": "lidm", "name": "Lomba Inovasi Digital Mahasiswa (LIDM)"}, {"id": "satria-nsc", "name": "Satria Data – National Statistic Competition"}, {"id": "satria-sec", "name": "Satria Data – Statistic Essay Competition"}, {"id": "satria-sic", "name": "Satria Data – Statistics Infographics Competition"}, {"id": "satria-bdc", "name": "Satria Data – Big Data Challenge"}, {"id": "ppko-team", "name": "PPK Ormawa – Tim Pelaksana"}, {"id": "ppko-rep", "name": "PPK Ormawa – Perwakilan Ormawa"}, {"id": "ppko-internal", "name": "PPK Ormawa – Pendanaan Internal"}, {"id": "mtq", "name": "Musabaqah Tilawatil Qur’an (MTQ)"}, {"id": "gemastik12", "name": "GEMASTIK Bidang I–II"}, {"id": "gemastik3", "name": "GEMASTIK Bidang III, IV, V, VI, VII, X, XI"}, {"id": "gemastik89", "name": "GEMASTIK Bidang VIII–IX"}, {"id": "kbmk", "name": "Kompetisi Mahasiswa Nasional Bidang Ilmu Bisnis, Manajemen, dan Keuangan (KBMK)"}, {"id": "kkmn", "name": "Kompetisi Kemaritiman Mahasiswa Nasional (KKMN)"}, {"id": "sport", "name": "PORPROV / POMNAS / PON / Lomba Olahraga Regional–Internasional"}, {"id": "peksiminas", "name": "PEKSIMINAS / PEKSIMIDA"}, {"id": "lpsm", "name": "Lomba Paduan Suara Mahasiswa (LPSM)"}, {"id": "pesparawi", "name": "PESPARAWI"}, {"id": "jury", "name": "Juri / Wasit Bidang Penalaran, Seni, dan Olahraga"}, {"id": "independent-academic", "name": "Lomba Mandiri Bidang Penalaran"}, {"id": "independent-art", "name": "Lomba Mandiri Bidang Seni dan Olahraga"}, {"id": "uftc", "name": "Unhas Freshmen Talent Competition (UFTC)"}, {"id": "pensi", "name": "Pentas Seni (PENSI)"}, {"id": "belmawa-participant", "name": "Kepesertaan Lomba BELMAWA / PUSPRESNAS"}, {"id": "pmw", "name": "Program Mahasiswa Wirausaha (PMW)"}, {"id": "p2mw", "name": "Program Pembinaan Mahasiswa Wirausaha (P2MW)"}, {"id": "independent-business", "name": "Wirausaha Mandiri"}, {"id": "org-management", "name": "Kepengurusan Organisasi"}, {"id": "committee", "name": "Kepanitiaan Kegiatan"}, {"id": "training", "name": "Pelatihan"}, {"id": "certification", "name": "Sertifikasi Kompetensi"}, {"id": "programmed-training", "name": "Pelatihan Terprogram"}, {"id": "workshop", "name": "Lokakarya"}, {"id": "seminar", "name": "Seminar"}, {"id": "conference", "name": "Konferensi Ilmiah"}, {"id": "guest-lecture", "name": "Kuliah Umum"}, {"id": "microcredential", "name": "Kredensial Mikro"}, {"id": "exchange", "name": "Pertukaran Mahasiswa"}, {"id": "short-course", "name": "Short Course"}, {"id": "gumsb", "name": "Gerakan Unhas Mengkaji dan Shalat Berjamaah (GUMSB)"}, {"id": "volunteer-programmed", "name": "Volunteer Event Terprogram"}, {"id": "volunteer-incidental", "name": "Volunteer Event Insidental"}, {"id": "volunteer-skilled-programmed", "name": "Volunteer Berketerampilan Khusus (Terprogram)"}, {"id": "volunteer-skilled-incidental", "name": "Volunteer Berketerampilan Khusus (Insidental)"}, {"id": "community-program", "name": "Pemberdayaan Masyarakat Terprogram"}, {"id": "social-service", "name": "Bakti Sosial"}, {"id": "humanitarian", "name": "Kegiatan Kemanusiaan"}, {"id": "internship", "name": "Magang / Praktik Kerja"}, {"id": "independent-study", "name": "Studi / Proyek Independen"}, {"id": "scientific-publication", "name": "Artikel Ilmiah"}, {"id": "appropriate-tech", "name": "Teknologi Tepat Guna"}, {"id": "opinion", "name": "Menulis Opini"}, {"id": "creative-work", "name": "Karya Cipta"}, {"id": "monumental-work", "name": "Karya Monumental"}, {"id": "ambassador", "name": "Menjadi Duta"}, {"id": "talent-academy", "name": "Talent Academy"}, {"id": "lab-assistant", "name": "Asisten Praktikum / Laboratorium / Peer-Tutor"}, {"id": "research-assistant", "name": "Asisten Penelitian"}, {"id": "service-assistant", "name": "Asisten Pengabdian"}, {"id": "competition-mentor", "name": "Mentor Kompetisi"}, {"id": "event-mentor", "name": "Mentor Event Terprogram"}, {"id": "mkpk-mentor", "name": "Mentor MKPK"}, {"id": "mc", "name": "Master of Ceremony"}, {"id": "content-creator", "name": "Content Creator Edukasi"}];
+  const MINISTRY_LABELS = {"01-keagamaan": "Keagamaan", "02-psdm": "Pengembangan Sumber Daya Manusia", "03-kajian-strategis-advokasi": "Kajian Strategis dan Advokasi", "04-komunikasi-informasi": "Komunikasi dan Informasi", "05-hubungan-luar": "Hubungan Luar", "06-administrasi-kesekretariatan": "Administrasi dan Kesekretariatan", "07-keuangan": "Keuangan", "08-pendidikan-profesi": "Pendidikan dan Profesi", "09-pengabdian-masyarakat": "Pengabdian Masyarakat", "10-minat-bakat": "Pengabdian Minat dan Bakat"};
 
-  const session = localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
-  if (!session) { window.location.replace("login.html"); return; }
+  const safeGet = (storage,key) => { try { return storage.getItem(key); } catch (_) { return null; } };
+  const safeSet = (storage,key,value) => { try { storage.setItem(key,value); return true; } catch (_) { return false; } };
+
+  const params = new URLSearchParams(window.location.search);
+  const demoFallback = params.get("demo") === "1";
+  let session = safeGet(window.localStorage, SESSION_KEY) || safeGet(window.sessionStorage, SESSION_KEY);
+
+  if (!session && demoFallback) {
+    session = JSON.stringify({email:"admin@bemkema.demo",loggedInAt:new Date().toISOString(),demo:true});
+    safeSet(window.sessionStorage, SESSION_KEY, session);
+    /*
+      Bersihkan parameter demo dari address bar jika History API tersedia.
+      Dashboard tetap terbuka walaupun Web Storage tidak tersedia.
+    */
+    try { history.replaceState(null, "", "index.html"); } catch (_) {}
+  }
+
+  if (!session && !demoFallback) {
+    window.location.replace("login.html");
+    return;
+  }
 
   const deepClone = (x) => JSON.parse(JSON.stringify(x));
   const loadJSON = (key, fallback) => { try { const v=localStorage.getItem(key); return v ? JSON.parse(v) : deepClone(fallback); } catch { return deepClone(fallback); } };
@@ -25,9 +48,11 @@
   let metrics = loadJSON(METRICS_KEY, METRICS_SEED);
   let documents = loadJSON(DOCS_KEY, DOCS_SEED);
   let structure = loadJSON(STRUCTURE_KEY, STRUCTURE_SEED);
+  let programs = loadJSON(PROGRAMS_KEY, PROGRAMS_SEED);
   if (!localStorage.getItem(METRICS_KEY)) saveJSON(METRICS_KEY,metrics);
   if (!localStorage.getItem(DOCS_KEY)) saveJSON(DOCS_KEY,documents);
   if (!localStorage.getItem(STRUCTURE_KEY)) saveJSON(STRUCTURE_KEY,structure);
+  if (!localStorage.getItem(PROGRAMS_KEY)) saveJSON(PROGRAMS_KEY,programs);
 
   function openDB() {
     return new Promise((resolve,reject)=>{
@@ -45,19 +70,23 @@
   function toast(message) { clearTimeout(toastTimer); toastEl.textContent=message; toastEl.classList.add("is-visible"); toastTimer=setTimeout(()=>toastEl.classList.remove("is-visible"),2200); }
   function confirmAction(message) { return window.confirm(message); }
 
-  const titles={dashboard:["Overview","Dashboard"],transparency:["Public Data","Transparansi"],structure:["Organization","Struktur Organisasi"],settings:["Demo Control","Pengaturan Demo"]};
+  const titles={dashboard:["Overview","Dashboard"],transparency:["Public Data","Transparansi"],programs:["Academic Tools","Program Kerja MKPK"],structure:["Organization","Struktur Organisasi"],settings:["Demo Control","Pengaturan Demo"]};
   function switchView(view) {
     document.querySelectorAll(".admin-view").forEach(x=>x.classList.toggle("is-active",x.dataset.view===view));
     document.querySelectorAll("[data-admin-view]").forEach(x=>x.classList.toggle("is-active",x.dataset.adminView===view));
     const t=titles[view]||titles.dashboard; document.getElementById("admin-page-kicker").textContent=t[0];document.getElementById("admin-page-title").textContent=t[1];
     document.getElementById("admin-sidebar").classList.remove("is-open");
-    if(view==="dashboard") renderDashboard(); if(view==="transparency") renderTransparency(); if(view==="structure") renderStructure();
+    if(view==="dashboard") renderDashboard(); if(view==="transparency") renderTransparency(); if(view==="programs") renderPrograms(); if(view==="structure") renderStructure();
   }
   document.querySelectorAll("[data-admin-view]").forEach(b=>b.addEventListener("click",()=>switchView(b.dataset.adminView)));
-  document.querySelectorAll("[data-jump]").forEach(b=>b.addEventListener("click",()=>{switchView(b.dataset.jump); setTimeout(()=>{ if(b.dataset.action==="new-doc") openDocumentModal(); if(b.dataset.action==="new-member") openMemberModal(); if(b.dataset.action==="new-special") openSpecialModal(); },80);}));
+  document.querySelectorAll("[data-jump]").forEach(b=>b.addEventListener("click",()=>{switchView(b.dataset.jump); setTimeout(()=>{ if(b.dataset.action==="new-doc") openDocumentModal(); if(b.dataset.action==="new-program") openProgramModal(); if(b.dataset.action==="new-member") openMemberModal(); if(b.dataset.action==="new-special") openSpecialModal(); },80);}));
   document.getElementById("admin-mobile-menu").addEventListener("click",()=>document.getElementById("admin-sidebar").classList.toggle("is-open"));
-  document.getElementById("admin-logout").addEventListener("click",()=>{localStorage.removeItem(SESSION_KEY);sessionStorage.removeItem(SESSION_KEY);window.location.replace("login.html");});
-  document.getElementById("preview-public").addEventListener("click",()=>window.open("../transparansi.html","_blank"));
+  document.getElementById("admin-logout").addEventListener("click",()=>{
+    try{localStorage.removeItem(SESSION_KEY);}catch(_){}
+    try{sessionStorage.removeItem(SESSION_KEY);}catch(_){}
+    window.location.replace("login.html");
+  });
+  document.getElementById("preview-public").addEventListener("click",()=>{const active=document.querySelector(".admin-view.is-active")?.dataset.view;window.open(active==="programs"?"../mkpk.html":"../transparansi.html","_blank");});
   document.querySelector(".admin-notice-close")?.addEventListener("click",e=>e.currentTarget.parentElement.remove());
 
   function renderDashboard() {
@@ -69,6 +98,9 @@
     document.getElementById("dash-doc-detail").textContent=`${drafts} draft`;
     document.getElementById("dash-members").textContent=memberCount;
     document.getElementById("dash-special").textContent=(structure.specialInstitutions||[]).length;
+    const publicPrograms=programs.filter(p=>p.published).length;
+    const dashMkpk=document.getElementById("dash-mkpk-programs"); if(dashMkpk) dashMkpk.textContent=programs.length;
+    const dashMkpkDetail=document.getElementById("dash-mkpk-program-detail"); if(dashMkpkDetail) dashMkpkDetail.textContent=`${publicPrograms} publik`;
   }
 
   const metricsForm=document.getElementById("metrics-form");
@@ -121,6 +153,100 @@
   async function deleteDocument(id) {const d=documents.find(x=>x.id===id);if(!d||!confirmAction(`Hapus dokumen “${d.title}”?`))return;if(d.fileKey)await deleteFile(d.fileKey);documents=documents.filter(x=>x.id!==id);saveJSON(DOCS_KEY,documents);renderDocuments();renderDashboard();toast("Dokumen dihapus.");}
   async function previewDocument(id) {const d=documents.find(x=>x.id===id);if(!d)return;if(d.fileKey){const file=await getFile(d.fileKey);if(file){const url=URL.createObjectURL(file);window.open(url,"_blank");setTimeout(()=>URL.revokeObjectURL(url),60000);return;}}if(d.externalUrl){window.open(d.externalUrl,"_blank","noopener");return;}toast("Dokumen ini belum memiliki file atau URL.");}
 
+
+  // PROGRAM KERJA MKPK
+  const programSearch=document.getElementById("admin-program-search");
+  const programFilter=document.getElementById("admin-program-filter");
+  const programList=document.getElementById("admin-program-list");
+  const programEmpty=document.getElementById("admin-program-empty");
+  const programModal=document.getElementById("program-modal");
+  const programForm=document.getElementById("program-form");
+  const programMappingList=document.getElementById("program-mapping-list");
+
+  function activityName(id){return MKPK_ACTIVITY_OPTIONS.find(x=>x.id===id)?.name||id;}
+  function renderPrograms(){
+    const query=(programSearch?.value||"").trim().toLowerCase();
+    const filter=programFilter?.value||"all";
+    const rows=programs.filter(p=>{
+      const qok=!query||`${p.name||""} ${p.description||""} ${p.ministryLabel||""}`.toLowerCase().includes(query);
+      const fok=filter==="all"||(filter==="published"?p.published:!p.published);
+      return qok&&fok;
+    });
+    if(programEmpty) programEmpty.hidden=rows.length>0;
+    if(programList) programList.innerHTML=rows.map(p=>`<article class="admin-program-item">
+      <div class="admin-program-item-main">
+        <div class="admin-program-item-head"><span>${esc(p.ministryLabel||MINISTRY_LABELS[p.ministry]||"Program Internal")}</span><em>${esc(p.year||"")}</em><span class="${p.published?"admin-table-badge--published":"admin-table-badge--draft"}">${p.published?"Publik":"Draft"}</span>${p.demo?'<span>Demo</span>':''}</div>
+        <strong>${esc(p.name)}</strong>
+        <p>${esc(p.description||"")}</p>
+        <div class="admin-program-mappings">${(p.mappings||[]).map(m=>`<span>${esc(m.roleLabel)} → ${esc(activityName(m.activityId))}</span>`).join("")||"<span>Belum ada mapping</span>"}</div>
+      </div>
+      <div class="admin-program-item-actions"><button data-program-edit="${esc(p.id)}">Edit</button><button class="is-danger" data-program-delete="${esc(p.id)}">Hapus</button></div>
+    </article>`).join("");
+    document.querySelectorAll("[data-program-edit]").forEach(b=>b.onclick=()=>openProgramModal(b.dataset.programEdit));
+    document.querySelectorAll("[data-program-delete]").forEach(b=>b.onclick=()=>deleteProgram(b.dataset.programDelete));
+  }
+  programSearch?.addEventListener("input",renderPrograms);
+  programFilter?.addEventListener("change",renderPrograms);
+
+  function mappingRow(mapping={id:uid("map"),roleLabel:"",activityId:"committee"}){
+    const row=document.createElement("div"); row.className="admin-mapping-row"; row.dataset.mappingId=mapping.id;
+    row.innerHTML=`<label><span>Nama peran</span><input data-map-role value="${esc(mapping.roleLabel||"")}" placeholder="Contoh: Anggota Panitia"></label>
+      <label><span>Aktivitas pada Rubrik MKPK</span><select data-map-activity>${MKPK_ACTIVITY_OPTIONS.map(a=>`<option value="${esc(a.id)}" ${a.id===mapping.activityId?"selected":""}>${esc(a.name)}</option>`).join("")}</select></label>
+      <button type="button" data-remove-mapping title="Hapus mapping">×</button>`;
+    row.querySelector("[data-remove-mapping]").onclick=()=>row.remove();
+    return row;
+  }
+  function addMappingRow(mapping){programMappingList.appendChild(mappingRow(mapping));}
+  document.getElementById("add-program-mapping")?.addEventListener("click",()=>addMappingRow());
+
+  function openProgramModal(id=null){
+    programForm.reset(); programMappingList.innerHTML="";
+    const p=id?programs.find(x=>x.id===id):null;
+    document.getElementById("program-modal-title").textContent=p?"Edit Program Internal":"Tambah Program Internal";
+    programForm.elements.id.value=p?.id||"";
+    programForm.elements.name.value=p?.name||"";
+    programForm.elements.ministry.value=p?.ministry||Object.keys(MINISTRY_LABELS)[0];
+    programForm.elements.year.value=p?.year||"2026";
+    programForm.elements.published.value=String(p?.published??true);
+    programForm.elements.description.value=p?.description||"";
+    const maps=(p?.mappings&&p.mappings.length)?p.mappings:[{id:uid("map"),roleLabel:"Anggota Panitia",activityId:"committee"}];
+    maps.forEach(addMappingRow);
+    programModal.showModal();
+  }
+  document.getElementById("new-program")?.addEventListener("click",()=>openProgramModal());
+
+  programForm?.addEventListener("submit",e=>{
+    e.preventDefault();
+    const fd=new FormData(programForm); const id=String(fd.get("id")||"");
+    let p=id?programs.find(x=>x.id===id):null;
+    const mappings=[...programMappingList.querySelectorAll(".admin-mapping-row")].map(row=>({
+      id:row.dataset.mappingId||uid("map"),
+      roleLabel:String(row.querySelector("[data-map-role]")?.value||"").trim(),
+      activityId:String(row.querySelector("[data-map-activity]")?.value||"")
+    })).filter(m=>m.roleLabel&&m.activityId);
+    const ministry=String(fd.get("ministry")||"");
+    p={...(p||{id:uid("program"),createdAt:new Date().toISOString()}),
+      name:String(fd.get("name")||"").trim(),
+      ministry,
+      ministryLabel:MINISTRY_LABELS[ministry]||ministry,
+      year:String(fd.get("year")||"").trim(),
+      published:fd.get("published")==="true",
+      description:String(fd.get("description")||"").trim(),
+      mappings,
+      demo:false,
+      updatedAt:new Date().toISOString()
+    };
+    if(!p.name){toast("Nama program wajib diisi.");return;}
+    if(p.published&&!mappings.length){toast("Program publik minimal memiliki satu mapping peran.");return;}
+    const idx=programs.findIndex(x=>x.id===p.id); if(idx>=0)programs[idx]=p; else programs.unshift(p);
+    saveJSON(PROGRAMS_KEY,programs); programModal.close(); renderPrograms(); renderDashboard(); toast("Program MKPK disimpan.");
+  });
+
+  function deleteProgram(id){
+    const p=programs.find(x=>x.id===id); if(!p||!confirmAction(`Hapus program “${p.name}”?`))return;
+    programs=programs.filter(x=>x.id!==id); saveJSON(PROGRAMS_KEY,programs); renderPrograms(); renderDashboard(); toast("Program MKPK dihapus.");
+  }
+
   // STRUCTURE
   const ministrySelect=document.getElementById("ministry-select"), memberList=document.getElementById("member-list");
   const memberForm=document.getElementById("member-form"), memberModal=document.getElementById("member-modal");
@@ -164,9 +290,9 @@
   function deleteSpecial(id){const s=(structure.specialInstitutions||[]).find(x=>x.id===id);if(!s||!confirmAction(`Hapus lembaga “${s.name}”?`))return;structure.specialInstitutions=structure.specialInstitutions.filter(x=>x.id!==id);saveJSON(STRUCTURE_KEY,structure);renderStructure();toast("Lembaga khusus dihapus.");}
 
   document.querySelectorAll("[data-close-modal]").forEach(b=>b.addEventListener("click",()=>document.getElementById(b.dataset.closeModal).close()));
-  [docModal,memberModal,specialModal].forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.close();}));
+  [docModal,programModal,memberModal,specialModal].filter(Boolean).forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.close();}));
 
-  document.getElementById("reset-demo").addEventListener("click",async()=>{if(!confirmAction("Reset seluruh data demo ke kondisi awal? Semua file demo yang diunggah juga akan dihapus."))return;localStorage.removeItem(METRICS_KEY);localStorage.removeItem(DOCS_KEY);localStorage.removeItem(STRUCTURE_KEY);await clearFiles();metrics=deepClone(METRICS_SEED);documents=deepClone(DOCS_SEED);structure=deepClone(STRUCTURE_SEED);saveJSON(METRICS_KEY,metrics);saveJSON(DOCS_KEY,documents);saveJSON(STRUCTURE_KEY,structure);renderDashboard();toast("Data demo dikembalikan ke kondisi awal.");});
+  document.getElementById("reset-demo").addEventListener("click",async()=>{if(!confirmAction("Reset seluruh data demo ke kondisi awal? Semua file demo yang diunggah juga akan dihapus."))return;localStorage.removeItem(METRICS_KEY);localStorage.removeItem(DOCS_KEY);localStorage.removeItem(STRUCTURE_KEY);localStorage.removeItem(PROGRAMS_KEY);await clearFiles();metrics=deepClone(METRICS_SEED);documents=deepClone(DOCS_SEED);structure=deepClone(STRUCTURE_SEED);programs=deepClone(PROGRAMS_SEED);saveJSON(METRICS_KEY,metrics);saveJSON(DOCS_KEY,documents);saveJSON(STRUCTURE_KEY,structure);saveJSON(PROGRAMS_KEY,programs);renderDashboard();toast("Data demo dikembalikan ke kondisi awal.");});
 
   renderDashboard();
 })();

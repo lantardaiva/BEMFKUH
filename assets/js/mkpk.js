@@ -4,6 +4,9 @@
   const q = (sel, root = document) => root.querySelector(sel);
   const qa = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   const fmt = (n) => Number(n || 0).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const INTERNAL_PROGRAMS_KEY = 'bem_internal_mkpk_programs';
+  const INTERNAL_PROGRAMS_SEED = [{"id": "internal-demo-1", "name": "Demo Program Internal", "ministry": "09-pengabdian-masyarakat", "ministryLabel": "Pengabdian Masyarakat", "year": "2026", "description": "Contoh konfigurasi program internal untuk mendemonstrasikan pemetaan peran ke aktivitas pada Rubrik MKPK.", "published": true, "demo": true, "mappings": [{"id": "map-demo-1", "roleLabel": "Ketua Pelaksana", "activityId": "committee"}, {"id": "map-demo-2", "roleLabel": "Koordinator / Penanggung Jawab", "activityId": "committee"}, {"id": "map-demo-3", "roleLabel": "Anggota Panitia", "activityId": "committee"}, {"id": "map-demo-4", "roleLabel": "Volunteer", "activityId": "social-service"}], "createdAt": "2026-08-15T00:00:00+08:00", "updatedAt": "2026-08-15T00:00:00+08:00"}];
+  const loadInternalPrograms = () => { try { const raw=localStorage.getItem(INTERNAL_PROGRAMS_KEY); if(raw) return JSON.parse(raw); localStorage.setItem(INTERNAL_PROGRAMS_KEY, JSON.stringify(INTERNAL_PROGRAMS_SEED)); return JSON.parse(JSON.stringify(INTERNAL_PROGRAMS_SEED)); } catch(_) { return JSON.parse(JSON.stringify(INTERNAL_PROGRAMS_SEED)); } };
 
   const courses = {
     1: { name: 'Komunikasi dan Kerjasama', sks: 2 },
@@ -134,6 +137,16 @@
   const categoryGrid = q('#mkpk-category-grid');
   if (!categoryGrid) return;
 
+  const sourceStep = q('#source-step');
+  const categoryStep = q('#category-step');
+  const internalProgramStep = q('#internal-program-step');
+  const internalProgramGrid = q('#internal-program-grid');
+  const internalProgramEmpty = q('#internal-program-empty');
+  const internalProgramSearch = q('#internal-program-search');
+  const internalMinistryFilter = q('#internal-ministry-filter');
+  const internalRolePanel = q('#internal-role-panel');
+  const internalRoleSelect = q('#internal-role-select');
+  const internalMappingPreview = q('#internal-mapping-preview');
   const activityStep = q('#activity-step');
   const detailStep = q('#detail-step');
   const activityList = q('#mkpk-activity-list');
@@ -156,11 +169,134 @@
   const planSummaryText = q('#plan-summary-text');
   const clearPlan = q('#clear-plan');
 
-  const state = { category: null, activity: null, result: null, plan: [] };
+  const state = { mode:null, category: null, activity: null, result: null, plan: [], internalProgram:null, internalMapping:null };
 
   const field = (name, label, control, help='') => `<label class="mkpk-field"><span>${label}</span>${control}${help ? `<small>${help}</small>` : ''}</label>`;
   const select = (name, options) => `<select name="${name}">${options.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('')}</select>`;
   const checkbox = (name, label, value='1') => `<label class="mkpk-check"><input type="checkbox" name="${name}" value="${value}"><span><i></i>${label}</span></label>`;
+
+
+  const getActivity = (id) => activities.find(a => a.id === id);
+
+  const setModeButtons = (mode) => {
+    qa('[data-mkpk-mode]').forEach(b=>b.classList.toggle('is-active', b.dataset.mkpkMode===mode));
+    qa('[data-switch-mode]').forEach(b=>b.classList.toggle('is-active', b.dataset.switchMode===mode));
+    const current=q('#mkpk-mode-current'); if(current) current.hidden=!mode;
+  };
+
+  const resetSelectionOnly = () => {
+    state.category=null; state.activity=null; state.result=null; state.internalProgram=null; state.internalMapping=null;
+    qa('[data-category]', categoryGrid).forEach(b=>b.classList.remove('is-active'));
+    activityStep.classList.add('mkpk-step--locked'); activityStep.hidden=true;
+    detailStep.classList.add('mkpk-step--locked');
+    if(internalRolePanel) internalRolePanel.hidden=true;
+    activityList.innerHTML=''; form.innerHTML=''; selectedBox.hidden=true; calculateBtn.disabled=true; search.value='';
+    clearResult();
+  };
+
+  const chooseMode = (mode) => {
+    state.mode=mode;
+    resetSelectionOnly();
+    setModeButtons(mode);
+    categoryStep.hidden = mode !== 'external';
+    internalProgramStep.hidden = mode !== 'internal';
+    if(mode==='external'){
+      activityStep.hidden=false;
+      renderCategories();
+      categoryStep.scrollIntoView({behavior:'smooth',block:'center'});
+    }else{
+      renderInternalPrograms();
+      internalProgramStep.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  };
+
+  const populateInternalMinistries = (programs) => {
+    if(!internalMinistryFilter) return;
+    const current=internalMinistryFilter.value || 'all';
+    const names=[...new Set(programs.map(p=>p.ministryLabel||p.ministry).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'id'));
+    internalMinistryFilter.innerHTML='<option value="all">Semua kementerian</option>'+names.map(n=>`<option value="${n.replace(/"/g,'&quot;')}">${n}</option>`).join('');
+    if([...internalMinistryFilter.options].some(o=>o.value===current)) internalMinistryFilter.value=current;
+  };
+
+  const renderInternalPrograms = () => {
+    if(!internalProgramGrid) return;
+    const all=loadInternalPrograms().filter(p=>p && p.published);
+    populateInternalMinistries(all);
+    const query=(internalProgramSearch?.value||'').trim().toLowerCase();
+    const ministry=internalMinistryFilter?.value||'all';
+    const items=all.filter(p=>{
+      const matchesQ=!query || `${p.name||''} ${p.description||''} ${p.ministryLabel||''}`.toLowerCase().includes(query);
+      const matchesM=ministry==='all' || (p.ministryLabel||p.ministry)===ministry;
+      return matchesQ && matchesM;
+    });
+    internalProgramEmpty.hidden=items.length>0;
+    internalProgramGrid.innerHTML=items.map(p=>`<button type="button" class="mkpk-internal-program-card ${state.internalProgram?.id===p.id?'is-active':''}" data-internal-program="${p.id}">
+      ${p.demo?'<span class="demo-chip">DEMO</span>':''}
+      <div class="program-label"><span>${p.ministryLabel||'Program Internal'}</span><b>${p.year||''}</b></div>
+      <strong>${p.name||'Program Internal'}</strong>
+      <p>${p.description||'Program kerja internal yang telah dipetakan ke Rubrik MKPK.'}</p>
+      <footer><span>${(p.mappings||[]).length} opsi peran</span><b>→</b></footer>
+    </button>`).join('');
+    qa('[data-internal-program]',internalProgramGrid).forEach(btn=>btn.addEventListener('click',()=>chooseInternalProgram(btn.dataset.internalProgram)));
+  };
+
+  const chooseInternalProgram = (id) => {
+    const p=loadInternalPrograms().find(x=>x.id===id && x.published);
+    if(!p) return;
+    state.internalProgram=p; state.internalMapping=null; state.activity=null; state.result=null;
+    renderInternalPrograms();
+    internalRolePanel.hidden=false;
+    q('#internal-selected-ministry').textContent=`${p.ministryLabel||'Program Internal'}${p.year?` · ${p.year}`:''}`;
+    q('#internal-selected-name').textContent=p.name||'Program Internal';
+    q('#internal-selected-description').textContent=p.description||'';
+    internalRoleSelect.innerHTML='<option value="">Pilih peran...</option>'+(p.mappings||[]).map(m=>`<option value="${m.id}">${m.roleLabel||'Peran'}</option>`).join('');
+    internalMappingPreview.innerHTML='<small>Pemetaan rubrik</small><strong>Pilih peran untuk melihat aktivitas MKPK.</strong>';
+    detailStep.classList.add('mkpk-step--locked'); selectedBox.hidden=true; form.innerHTML=''; calculateBtn.disabled=true; clearResult();
+    internalRolePanel.scrollIntoView({behavior:'smooth',block:'center'});
+  };
+
+  const applyInternalDefaults = (a, roleLabel='') => {
+    const role=(roleLabel||'').toLowerCase();
+    const set=(name,value)=>{ const el=form.elements[name]; if(el) el.value=String(value); };
+    if(a.type==='organization'){
+      if(/ketua/.test(role)) set('orgRole',1.5);
+      else if(/koordinator|wakil|sekretaris|bendahara|penanggung/.test(role)) set('orgRole',1);
+      else set('orgRole',0.5);
+      if(a.orgKind==='committee') set('orgScope',0.75);
+      else set('orgScope',1);
+    }
+    if(a.type==='duration' || a.type==='scaleRole' || a.type==='talentAcademy'){
+      set('role', /narasumber|presenter|fasilitator|instruktur/.test(role)?'speaker':'participant');
+    }
+    if(a.type==='competition' || a.type==='entrepreneur' || a.type==='communityProgram' || a.type==='creative'){
+      set('teamRole', /anggota|staf|volunteer|panitia/.test(role)?'member':'leader');
+    }
+    if(a.type==='volunteerScale') set('scale',0.75);
+    if(a.type==='scaleRole') set('scale',1);
+  };
+
+  const chooseInternalMapping = (mappingId) => {
+    const p=state.internalProgram; if(!p) return;
+    const mapping=(p.mappings||[]).find(m=>m.id===mappingId); if(!mapping) return;
+    const a=getActivity(mapping.activityId);
+    if(!a){
+      internalMappingPreview.innerHTML='<small>Pemetaan rubrik</small><strong>Aktivitas rubrik tidak ditemukan. Hubungi administrator.</strong>';
+      return;
+    }
+    state.internalMapping=mapping; state.activity=a; state.category=a.cat; state.result=null;
+    const cat=categories.find(c=>c.id===a.cat);
+    internalMappingPreview.innerHTML=`<small>Pemetaan rubrik</small><strong>${cat?.label||''} → ${a.name}</strong>`;
+    detailStep.classList.remove('mkpk-step--locked');
+    selectedBox.hidden=false;
+    selectedBox.innerHTML=`<span>${cat?.icon||'◇'}</span><div><small>${p.name} · ${mapping.roleLabel}</small><strong>${a.name}</strong><em class="mkpk-internal-source-chip">Program internal</em></div><button type="button" id="change-activity">Ganti Program</button>`;
+    q('#change-activity').addEventListener('click',()=>internalProgramStep.scrollIntoView({behavior:'smooth',block:'center'}));
+    renderForm(a);
+    applyInternalDefaults(a,mapping.roleLabel);
+    calculateBtn.disabled=false;
+    state.result=compute(a);
+    renderResult(state.result);
+    detailStep.scrollIntoView({behavior:'smooth',block:'center'});
+  };
 
   const renderCategories = () => {
     categoryGrid.innerHTML = categories.map(c => `<button type="button" class="mkpk-category-card" data-category="${c.id}"><b>${c.icon}</b><span><strong>${c.label}</strong><small>${c.desc}</small></span></button>`).join('');
@@ -172,6 +308,7 @@
     state.activity = null;
     state.result = null;
     qa('[data-category]', categoryGrid).forEach(b => b.classList.toggle('is-active', b.dataset.category === id));
+    activityStep.hidden=false;
     activityStep.classList.remove('mkpk-step--locked');
     detailStep.classList.add('mkpk-step--locked');
     search.value = '';
@@ -194,7 +331,7 @@
     detailStep.classList.remove('mkpk-step--locked');
     selectedBox.hidden = false;
     const cat = categories.find(c => c.id === state.activity.cat);
-    selectedBox.innerHTML = `<span>${cat.icon}</span><div><small>${cat.label}</small><strong>${state.activity.name}</strong></div><button type="button" id="change-activity">Ganti</button>`;
+    selectedBox.innerHTML = `<span>${cat.icon}</span><div><small>${cat.label}</small><strong>${state.activity.name}</strong><em class="mkpk-internal-source-chip">Kegiatan lainnya</em></div><button type="button" id="change-activity">Ganti</button>`;
     q('#change-activity').addEventListener('click', () => activityStep.scrollIntoView({behavior:'smooth', block:'center'}));
     renderForm(state.activity);
     calculateBtn.disabled = false;
@@ -387,26 +524,41 @@
   const calculate = () => { if(!state.activity)return; state.result=compute(state.activity); renderResult(state.result); };
 
   const reset = () => {
-    state.category=null; state.activity=null; state.result=null;
+    state.mode=null; state.category=null; state.activity=null; state.result=null; state.internalProgram=null; state.internalMapping=null;
     qa('[data-category]', categoryGrid).forEach(b=>b.classList.remove('is-active'));
+    qa('[data-mkpk-mode]').forEach(b=>b.classList.remove('is-active'));
+    qa('[data-switch-mode]').forEach(b=>b.classList.remove('is-active'));
+    q('#mkpk-mode-current').hidden=true;
+    categoryStep.hidden=true; internalProgramStep.hidden=true; activityStep.hidden=true;
     activityStep.classList.add('mkpk-step--locked'); detailStep.classList.add('mkpk-step--locked');
-    activityList.innerHTML=''; form.innerHTML=''; selectedBox.hidden=true; calculateBtn.disabled=true; search.value=''; clearResult();
+    if(internalRolePanel) internalRolePanel.hidden=true;
+    activityList.innerHTML=''; form.innerHTML=''; selectedBox.hidden=true; calculateBtn.disabled=true; search.value='';
+    if(internalProgramSearch) internalProgramSearch.value=''; if(internalMinistryFilter) internalMinistryFilter.value='all';
+    clearResult();
     q('#simulator').scrollIntoView({behavior:'smooth',block:'start'});
   };
 
   const renderPlan = () => {
     if(!state.plan.length){planList.innerHTML='<div class="mkpk-plan-empty" id="mkpk-plan-empty">Belum ada kegiatan yang ditambahkan.</div>';planTotal.textContent='0.00';planMeter.style.width='0%';planSummaryText.textContent='Tambahkan kegiatan untuk mulai menyusun rencana rekognisi.';return;}
-    planList.innerHTML=state.plan.map((item,i)=>`<article class="mkpk-plan-item"><div><small>${categories.find(c=>c.id===item.activity.cat)?.label||''}</small><strong>${item.activity.name}</strong><span>${fmt(item.sks)} SKS</span></div><button type="button" data-remove-plan="${i}" aria-label="Hapus ${item.activity.name}">×</button></article>`).join('');
+    planList.innerHTML=state.plan.map((item,i)=>`<article class="mkpk-plan-item"><div><small>${item.programName?`Internal · ${item.programName}`:(categories.find(c=>c.id===item.activity.cat)?.label||'')}</small><strong>${item.programName?`${item.mappingRole} → ${item.activity.name}`:item.activity.name}</strong><span>${fmt(item.sks)} SKS</span></div><button type="button" data-remove-plan="${i}" aria-label="Hapus ${item.activity.name}">×</button></article>`).join('');
     qa('[data-remove-plan]',planList).forEach(b=>b.addEventListener('click',()=>{state.plan.splice(Number(b.dataset.removePlan),1);renderPlan();}));
     const total=state.plan.reduce((s,x)=>s+x.sks,0); planTotal.textContent=fmt(total); planMeter.style.width=`${Math.min(total/10*100,100)}%`;
     const eligible = new Set(); state.plan.forEach(x=>(x.activity.courses||[]).forEach(id=>eligible.add(id)));
     planSummaryText.textContent=`${state.plan.length} kegiatan tersimpan. Total estimasi ${fmt(total)} SKS dengan ${eligible.size} pilihan MKPK yang muncul dari kombinasi kegiatan ini.`;
   };
 
-  addPlanBtn.addEventListener('click',()=>{if(!state.result)return;state.plan.push({...state.result});renderPlan();addPlanBtn.textContent='✓ Ditambahkan';setTimeout(()=>addPlanBtn.textContent='+ Tambahkan ke Rencana Saya',1200);});
+  addPlanBtn.addEventListener('click',()=>{if(!state.result)return;state.plan.push({...state.result,sourceMode:state.mode,programName:state.internalProgram?.name||null,mappingRole:state.internalMapping?.roleLabel||null});renderPlan();addPlanBtn.textContent='✓ Ditambahkan';setTimeout(()=>addPlanBtn.textContent='+ Tambahkan ke Rencana Rekognisi',1200);});
   clearPlan.addEventListener('click',()=>{state.plan=[];renderPlan();});
   calculateBtn.addEventListener('click',calculate); resetBtn.addEventListener('click',reset); search.addEventListener('input',renderActivities);
   form.addEventListener('change',()=>{ if(state.activity) { state.result=compute(state.activity); renderResult(state.result); } });
+  qa('[data-mkpk-mode]').forEach(b=>b.addEventListener('click',()=>chooseMode(b.dataset.mkpkMode)));
+  qa('[data-switch-mode]').forEach(b=>b.addEventListener('click',()=>chooseMode(b.dataset.switchMode)));
+  internalProgramSearch?.addEventListener('input',renderInternalPrograms);
+  internalMinistryFilter?.addEventListener('change',renderInternalPrograms);
+  internalRoleSelect?.addEventListener('change',()=>{ if(internalRoleSelect.value) chooseInternalMapping(internalRoleSelect.value); });
+  window.addEventListener('storage',e=>{ if(e.key===INTERNAL_PROGRAMS_KEY && state.mode==='internal') renderInternalPrograms(); });
+  window.addEventListener('focus',()=>{ if(state.mode==='internal') renderInternalPrograms(); });
 
   renderCategories(); renderPlan();
+  categoryStep.hidden=true; internalProgramStep.hidden=true; activityStep.hidden=true;
 })();

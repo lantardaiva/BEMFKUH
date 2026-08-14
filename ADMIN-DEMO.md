@@ -26,3 +26,9 @@ Data teks tersimpan pada LocalStorage dan file pada IndexedDB browser. `transpar
 ## Penting
 
 Login ini sengaja merupakan **demo front-end**. Password terlihat di source code dan tidak boleh digunakan sebagai keamanan produksi. Sebelum website dipublikasikan sebagai sistem admin sungguhan, pindahkan autentikasi, database, dan file storage ke backend seperti Supabase.
+
+
+## Program Kerja MKPK
+Menu **Program Kerja MKPK** digunakan untuk menambah program internal yang muncul pada `mkpk.html`.
+Setiap program dapat memiliki beberapa pemetaan peran. Contoh: `Anggota Panitia → Kepanitiaan Kegiatan`.
+Program berstatus **Publik** langsung tersedia pada jalur **Program Internal KEMA** di simulator pada browser demo yang sama.
