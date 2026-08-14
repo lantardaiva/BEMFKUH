@@ -40,6 +40,12 @@
           <p>Gunakan kredensial demo di bawah. Login ini hanya simulasi front-end dan bukan sistem keamanan produksi.</p>
         </div>
 
+        <div class="admin-demo-credentials">
+          <div><small>Email</small><code>admin@bemkema.demo</code></div>
+          <div><small>Password</small><code>Metamorfosis2026!</code></div>
+          <button type="button" id="fill-demo">Isi otomatis</button>
+        </div>
+
         <form id="admin-login-form" class="admin-login-form" novalidate>
           <label>
             <span>Email administrator</span>
@@ -63,25 +69,87 @@
   </main>
   <script>
     (() => {
-      const EMAIL='admin@bemkema.demo';
-      const PASSWORD='Metamorfosis2026!';
-      const SESSION_KEY='bem_admin_session';
-      const form=document.getElementById('admin-login-form');
-      const email=document.getElementById('admin-email');
-      const password=document.getElementById('admin-password');
-      const error=document.getElementById('login-error');
-      const remember=document.getElementById('remember-admin');
-      const existing=localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
-      if(existing){ window.location.replace('index.html'); return; }
-      document.getElementById('fill-demo').addEventListener('click',()=>{email.value=EMAIL;password.value=PASSWORD;password.focus();});
-      document.getElementById('toggle-password').addEventListener('click',(e)=>{const show=password.type==='password';password.type=show?'text':'password';e.currentTarget.textContent=show?'Sembunyikan':'Lihat';});
-      form.addEventListener('submit',(e)=>{
-        e.preventDefault(); error.hidden=true;
-        if(email.value.trim()===EMAIL && password.value===PASSWORD){
-          const payload=JSON.stringify({email:EMAIL,loggedInAt:new Date().toISOString(),demo:true});
-          (remember.checked?localStorage:sessionStorage).setItem(SESSION_KEY,payload);
-          window.location.href='index.html';
-        } else { error.hidden=false; form.classList.remove('admin-shake'); void form.offsetWidth; form.classList.add('admin-shake'); }
+      "use strict";
+
+      const EMAIL = "admin@bemkema.demo";
+      const PASSWORD = "Metamorfosis2026!";
+      const SESSION_KEY = "bem_admin_session";
+
+      const form = document.getElementById("admin-login-form");
+      const email = document.getElementById("admin-email");
+      const password = document.getElementById("admin-password");
+      const error = document.getElementById("login-error");
+      const remember = document.getElementById("remember-admin");
+
+      const safeGet = (storage, key) => {
+        try { return storage.getItem(key); } catch (_) { return null; }
+      };
+
+      const safeSet = (storage, key, value) => {
+        try { storage.setItem(key, value); return true; } catch (_) { return false; }
+      };
+
+      const alreadyLoggedIn =
+        safeGet(window.localStorage, SESSION_KEY) ||
+        safeGet(window.sessionStorage, SESSION_KEY);
+
+      if (alreadyLoggedIn) {
+        window.location.replace("index.html");
+        return;
+      }
+
+      const createSessionAndEnter = () => {
+        const payload = JSON.stringify({
+          email: EMAIL,
+          loggedInAt: new Date().toISOString(),
+          demo: true
+        });
+
+        const preferredStorage = remember.checked
+          ? window.localStorage
+          : window.sessionStorage;
+
+        const stored =
+          safeSet(preferredStorage, SESSION_KEY, payload) ||
+          safeSet(window.sessionStorage, SESSION_KEY, payload) ||
+          safeSet(window.localStorage, SESSION_KEY, payload);
+
+        /*
+          Fallback ?demo=1 membuat demo tetap dapat dibuka saat browser
+          memblokir Web Storage, misalnya pada beberapa mode file:// atau preview.
+          Ini HANYA untuk demo, bukan autentikasi produksi.
+        */
+        window.location.href = stored ? "index.html" : "index.html?demo=1";
+      };
+
+      document.getElementById("fill-demo").addEventListener("click", () => {
+        email.value = EMAIL;
+        password.value = PASSWORD;
+        password.focus();
+      });
+
+      document.getElementById("toggle-password").addEventListener("click", (e) => {
+        const show = password.type === "password";
+        password.type = show ? "text" : "password";
+        e.currentTarget.textContent = show ? "Sembunyikan" : "Lihat";
+      });
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        error.hidden = true;
+
+        const emailMatch = email.value.trim().toLowerCase() === EMAIL.toLowerCase();
+        const passwordMatch = password.value === PASSWORD;
+
+        if (emailMatch && passwordMatch) {
+          createSessionAndEnter();
+        } else {
+          error.textContent = "Email atau password demo tidak sesuai. Gunakan tombol “Isi otomatis” untuk mencoba kredensial demo.";
+          error.hidden = false;
+          form.classList.remove("admin-shake");
+          void form.offsetWidth;
+          form.classList.add("admin-shake");
+        }
       });
     })();
   </script>
