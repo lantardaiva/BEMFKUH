@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Login Administrator — BEM KEMA FK Unhas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-login-body">
+  <main class="admin-login-shell">
+    <section class="admin-login-brand" aria-label="Identitas BEM KEMA FK Unhas">
+      <div class="admin-brand-logos">
+        <img src="../assets/img/logo-unhas.png" alt="Logo Universitas Hasanuddin">
+        <span>›</span>
+        <img src="../assets/img/logo-kema.png" alt="Logo KEMA FK Unhas">
+        <span>›</span>
+        <img src="../assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis">
+      </div>
+      <div class="admin-login-kicker">Administrator Portal</div>
+      <h1>Kelola website tanpa menyentuh source code.</h1>
+      <p>Dashboard demo untuk mengelola transparansi, dokumen publik, anggota kementerian, dan lembaga khusus.</p>
+      <div class="admin-login-feature-grid">
+        <div><span>01</span><strong>Transparansi</strong><small>Ubah indikator dan publikasi dokumen.</small></div>
+        <div><span>02</span><strong>Struktur</strong><small>Tambah atau hapus anggota secara fleksibel.</small></div>
+        <div><span>03</span><strong>Preview</strong><small>Perubahan demo langsung terbaca di website publik.</small></div>
+      </div>
+      <div class="admin-login-watermark">METAMORFOSIS</div>
+    </section>
+
+    <section class="admin-login-panel">
+      <div class="admin-login-card">
+        <a class="admin-back-link" href="../index.html">← Kembali ke website</a>
+        <div class="admin-login-title">
+          <span>Demo administrator</span>
+          <h2>Masuk ke Dashboard</h2>
+          <p>Gunakan kredensial demo di bawah. Login ini hanya simulasi front-end dan bukan sistem keamanan produksi.</p>
+        </div>
+
+        <div class="admin-demo-credentials">
+          <div><small>Email</small><code>admin@bemkema.demo</code></div>
+          <div><small>Password</small><code>Metamorfosis2026!</code></div>
+          <button type="button" id="fill-demo">Isi otomatis</button>
+        </div>
+
+        <form id="admin-login-form" class="admin-login-form" novalidate>
+          <label>
+            <span>Email administrator</span>
+            <input type="email" id="admin-email" autocomplete="username" placeholder="admin@bemkema.demo" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <div class="admin-password-wrap">
+              <input type="password" id="admin-password" autocomplete="current-password" placeholder="Masukkan password" required>
+              <button type="button" id="toggle-password" aria-label="Tampilkan password">Lihat</button>
+            </div>
+          </label>
+          <label class="admin-check-row"><input type="checkbox" id="remember-admin" checked><span>Pertahankan sesi demo di browser ini</span></label>
+          <div class="admin-login-error" id="login-error" hidden>Email atau password demo tidak sesuai.</div>
+          <button class="admin-primary-button admin-login-button" type="submit">Masuk ke Dashboard <span>→</span></button>
+        </form>
+
+        <div class="admin-security-note"><strong>DEMO ONLY</strong><span>Kredensial sengaja ditampilkan. Untuk website publik sebenarnya, ganti autentikasi ini dengan Supabase Auth atau backend yang aman.</span></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const EMAIL='admin@bemkema.demo';
+      const PASSWORD='Metamorfosis2026!';
+      const SESSION_KEY='bem_admin_session';
+      const form=document.getElementById('admin-login-form');
+      const email=document.getElementById('admin-email');
+      const password=document.getElementById('admin-password');
+      const error=document.getElementById('login-error');
+      const remember=document.getElementById('remember-admin');
+      const existing=localStorage.getItem(SESSION_KEY) || sessionStorage.getItem(SESSION_KEY);
+      if(existing){ window.location.replace('index.html'); return; }
+      document.getElementById('fill-demo').addEventListener('click',()=>{email.value=EMAIL;password.value=PASSWORD;password.focus();});
+      document.getElementById('toggle-password').addEventListener('click',(e)=>{const show=password.type==='password';password.type=show?'text':'password';e.currentTarget.textContent=show?'Sembunyikan':'Lihat';});
+      form.addEventListener('submit',(e)=>{
+        e.preventDefault(); error.hidden=true;
+        if(email.value.trim()===EMAIL && password.value===PASSWORD){
+          const payload=JSON.stringify({email:EMAIL,loggedInAt:new Date().toISOString(),demo:true});
+          (remember.checked?localStorage:sessionStorage).setItem(SESSION_KEY,payload);
+          window.location.href='index.html';
+        } else { error.hidden=false; form.classList.remove('admin-shake'); void form.offsetWidth; form.classList.add('admin-shake'); }
+      });
+    })();
+  </script>
+</body>
+</html>

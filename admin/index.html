@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Dashboard — BEM KEMA FK Unhas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-app-body">
+  <div class="admin-app" id="admin-app">
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar-brand">
+        <div class="admin-sidebar-logo"><img src="../assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis"></div>
+        <div><strong>BEM KEMA FK UNHAS</strong><small>Administrator</small></div>
+      </div>
+      <nav class="admin-nav" aria-label="Navigasi administrator">
+        <button class="is-active" data-admin-view="dashboard"><span>⌂</span><b>Dashboard</b></button>
+        <button data-admin-view="transparency"><span>◫</span><b>Transparansi</b></button>
+        <button data-admin-view="structure"><span>◎</span><b>Struktur Organisasi</b></button>
+        <button data-admin-view="settings"><span>⚙</span><b>Pengaturan Demo</b></button>
+      </nav>
+      <div class="admin-sidebar-bottom">
+        <div class="admin-demo-badge"><span></span><div><strong>Demo Mode</strong><small>Local browser storage</small></div></div>
+        <a href="../index.html" target="_blank" rel="noopener">↗ Lihat website publik</a>
+        <button type="button" id="admin-logout">Keluar</button>
+      </div>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <button class="admin-mobile-menu" id="admin-mobile-menu" aria-label="Buka menu">☰</button>
+        <div><span id="admin-page-kicker">Overview</span><h1 id="admin-page-title">Dashboard</h1></div>
+        <div class="admin-topbar-actions">
+          <button type="button" class="admin-secondary-button" id="preview-public">Preview Website ↗</button>
+          <div class="admin-user-chip"><span>AD</span><div><strong>Administrator Demo</strong><small>admin@bemkema.demo</small></div></div>
+        </div>
+      </header>
+
+      <main class="admin-content">
+        <div class="admin-notice"><strong>Mode demonstrasi</strong><span>Semua perubahan tersimpan hanya di browser ini melalui LocalStorage/IndexedDB. Refresh tidak menghapus data, tetapi perangkat/browser lain tidak akan melihat perubahan.</span><button type="button" class="admin-notice-close">×</button></div>
+
+        <!-- DASHBOARD -->
+        <section class="admin-view is-active" data-view="dashboard">
+          <div class="admin-welcome-card">
+            <div><span>Kabinet Metamorfosis 2026</span><h2>Selamat datang di pusat kendali website.</h2><p>Kelola data publik dengan antarmuka yang lebih aman dari salah edit HTML. Untuk demo, perubahan langsung disinkronkan ke halaman publik pada browser yang sama.</p></div>
+            <div class="admin-welcome-graphic"><i></i><i></i><strong>BEM</strong></div>
+          </div>
+
+          <div class="admin-stat-grid">
+            <article><span>Program Kerja</span><strong id="dash-programs">0</strong><small id="dash-program-detail">0 selesai</small></article>
+            <article><span>Dokumen Publik</span><strong id="dash-documents">0</strong><small id="dash-doc-detail">0 draft</small></article>
+            <article><span>Anggota Kementerian</span><strong id="dash-members">0</strong><small>10 kementerian</small></article>
+            <article><span>Lembaga Khusus</span><strong id="dash-special">0</strong><small>struktur fleksibel</small></article>
+          </div>
+
+          <div class="admin-dashboard-grid">
+            <section class="admin-card">
+              <div class="admin-card-head"><div><span>Quick Actions</span><h3>Akses pengelolaan</h3></div></div>
+              <div class="admin-quick-actions">
+                <button data-jump="transparency" data-action="new-doc"><span>＋</span><div><strong>Upload Dokumen</strong><small>Tambah laporan atau dokumen publik.</small></div></button>
+                <button data-jump="transparency"><span>↗</span><div><strong>Update Indikator</strong><small>Ubah anggaran, program, dan aspirasi.</small></div></button>
+                <button data-jump="structure" data-action="new-member"><span>＋</span><div><strong>Tambah Anggota</strong><small>Masukkan anggota kementerian baru.</small></div></button>
+                <button data-jump="structure" data-action="new-special"><span>＋</span><div><strong>Tambah Lembaga</strong><small>Buat lembaga khusus baru.</small></div></button>
+              </div>
+            </section>
+            <section class="admin-card">
+              <div class="admin-card-head"><div><span>Status Sistem</span><h3>Demo storage</h3></div><span class="admin-status-pill">Aktif</span></div>
+              <div class="admin-system-list">
+                <div><span>Autentikasi</span><strong>Demo local session</strong></div>
+                <div><span>Data dashboard</span><strong>LocalStorage</strong></div>
+                <div><span>File dokumen/foto</span><strong>IndexedDB</strong></div>
+                <div><span>Sinkronisasi publik</span><strong>Browser yang sama</strong></div>
+              </div>
+              <div class="admin-production-note"><b>Untuk produksi</b><p>Ganti layer penyimpanan demo dengan Supabase Auth + Database + Storage tanpa perlu mengubah desain dashboard.</p></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- TRANSPARENCY -->
+        <section class="admin-view" data-view="transparency">
+          <div class="admin-section-heading"><div><span>Transparansi</span><h2>Kelola indikator dan dokumen publik.</h2><p>Perubahan yang disimpan akan dipakai oleh <code>transparansi.html</code> pada browser demo yang sama.</p></div><button class="admin-primary-button" id="new-document">+ Tambah Dokumen</button></div>
+
+          <section class="admin-card admin-metrics-card">
+            <div class="admin-card-head"><div><span>Dashboard publik</span><h3>Indikator transparansi</h3></div><button type="button" class="admin-secondary-button" id="save-metrics">Simpan Indikator</button></div>
+            <form id="metrics-form" class="admin-form-grid">
+              <label><span>Total program kerja</span><input type="number" min="0" name="programTotal"></label>
+              <label><span>Program selesai</span><input type="number" min="0" name="programCompleted"></label>
+              <label><span>Program berjalan</span><input type="number" min="0" name="programRunning"></label>
+              <label><span>Program terjadwal</span><input type="number" min="0" name="programScheduled"></label>
+              <label><span>Program ditunda</span><input type="number" min="0" name="programDelayed"></label>
+              <label><span>Realisasi anggaran (%)</span><input type="number" min="0" max="100" name="budgetPercent"></label>
+              <label><span>Anggaran terealisasi (Rp)</span><input type="number" min="0" name="budgetRealized"></label>
+              <label><span>Total pagu (Rp)</span><input type="number" min="0" name="budgetTotal"></label>
+              <label><span>Aspirasi ditindaklanjuti (%)</span><input type="number" min="0" max="100" name="aspirationPercent"></label>
+              <label><span>Laporan diterima</span><input type="number" min="0" name="aspirationTotal"></label>
+              <label><span>Laporan terverifikasi</span><input type="number" min="0" name="aspirationVerified"></label>
+              <label><span>Dalam proses</span><input type="number" min="0" name="aspirationInProcess"></label>
+              <label><span>Laporan selesai</span><input type="number" min="0" name="aspirationCompleted"></label>
+              <label><span>Rata-rata respons (hari)</span><input type="number" min="0" step="0.1" name="responseDays"></label>
+              <label><span>Periode laporan</span><input type="text" name="period" placeholder="Semester I 2026"></label>
+            </form>
+          </section>
+
+          <section class="admin-card">
+            <div class="admin-card-head admin-card-head--stack-mobile"><div><span>Dokumen</span><h3>Repositori publik</h3></div><div class="admin-table-tools"><input type="search" id="admin-doc-search" placeholder="Cari dokumen..."><select id="admin-doc-filter"><option value="all">Semua status</option><option value="published">Publik</option><option value="draft">Draft</option></select></div></div>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead><tr><th>Dokumen</th><th>Kategori</th><th>Periode</th><th>Status</th><th>File</th><th></th></tr></thead>
+                <tbody id="documents-table"></tbody>
+              </table>
+            </div>
+            <div class="admin-empty" id="documents-empty" hidden>Belum ada dokumen yang sesuai filter.</div>
+          </section>
+        </section>
+
+        <!-- STRUCTURE -->
+        <section class="admin-view" data-view="structure">
+          <div class="admin-section-heading"><div><span>Struktur Organisasi</span><h2>Jumlah anggota tidak lagi dikunci.</h2><p>Tambah atau hapus anggota per kementerian. Jumlah kartu di website publik akan menyesuaikan otomatis.</p></div><button class="admin-primary-button" id="new-member">+ Tambah Anggota</button></div>
+
+          <div class="admin-structure-grid">
+            <section class="admin-card">
+              <div class="admin-card-head"><div><span>Kementerian</span><h3>Anggota kementerian</h3></div></div>
+              <label class="admin-select-label"><span>Pilih kementerian</span><select id="ministry-select"></select></label>
+              <div class="admin-member-summary"><span id="selected-ministry-code">01</span><div><strong id="selected-ministry-name">Keagamaan</strong><small id="selected-ministry-count">0 anggota</small></div></div>
+              <div class="admin-member-list" id="member-list"></div>
+            </section>
+
+            <section class="admin-card">
+              <div class="admin-card-head"><div><span>Lembaga Khusus</span><h3>Unit tambahan</h3></div><button type="button" class="admin-secondary-button" id="new-special">+ Tambah</button></div>
+              <p class="admin-card-copy">Tidak ada jumlah minimum atau maksimum. Anda dapat mengosongkan bagian ini jika tidak ada lembaga khusus.</p>
+              <div class="admin-special-list" id="special-list"></div>
+            </section>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="admin-view" data-view="settings">
+          <div class="admin-section-heading"><div><span>Pengaturan Demo</span><h2>Kontrol data lokal.</h2><p>Gunakan bagian ini saat ingin mengulang demonstrasi dari awal.</p></div></div>
+          <div class="admin-settings-grid">
+            <section class="admin-card"><div class="admin-card-head"><div><span>Reset</span><h3>Kembalikan data awal</h3></div></div><p class="admin-card-copy">Menghapus perubahan pada indikator, dokumen, anggota kementerian, lembaga khusus, dan file demo yang diunggah.</p><button class="admin-danger-button" id="reset-demo">Reset Semua Data Demo</button></section>
+            <section class="admin-card"><div class="admin-card-head"><div><span>Production</span><h3>Sebelum website dipublikasikan</h3></div></div><div class="admin-checklist"><div><span>1</span><p>Ganti login demo dengan autentikasi backend.</p></div><div><span>2</span><p>Pindahkan data dari LocalStorage ke database.</p></div><div><span>3</span><p>Pindahkan file dari IndexedDB ke object storage.</p></div><div><span>4</span><p>Aktifkan role/permission administrator.</p></div></div></section>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- DOCUMENT MODAL -->
+  <dialog class="admin-modal" id="document-modal">
+    <form method="dialog" class="admin-modal-card" id="document-form">
+      <div class="admin-modal-head"><div><span>Transparansi</span><h3 id="document-modal-title">Tambah Dokumen</h3></div><button type="button" data-close-modal="document-modal">×</button></div>
+      <input type="hidden" name="id">
+      <div class="admin-form-grid admin-form-grid--modal">
+        <label class="admin-field-wide"><span>Judul dokumen</span><input name="title" required placeholder="Contoh: Laporan Realisasi Anggaran Semester I"></label>
+        <label><span>Kategori</span><select name="category"><option value="keuangan">Keuangan</option><option value="kinerja">Kinerja</option><option value="regulasi">Regulasi</option><option value="lainnya">Lainnya</option></select></label>
+        <label><span>Periode</span><input name="period" placeholder="Semester I 2026"></label>
+        <label><span>Tipe</span><select name="type"><option>PDF</option><option>DOC</option><option>XLS</option><option>LINK</option></select></label>
+        <label><span>Status publikasi</span><select name="published"><option value="true">Publik</option><option value="false">Draft</option></select></label>
+        <label class="admin-field-wide"><span>Deskripsi</span><textarea name="description" rows="3" placeholder="Ringkasan isi dokumen"></textarea></label>
+        <label class="admin-field-wide"><span>Upload file demo <small>(maks. 10 MB)</small></span><input type="file" name="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.png,.jpg,.jpeg"></label>
+        <label class="admin-field-wide"><span>atau URL eksternal</span><input type="url" name="externalUrl" placeholder="https://..."></label>
+      </div>
+      <div class="admin-current-file" id="document-current-file" hidden></div>
+      <div class="admin-modal-actions"><button type="button" class="admin-secondary-button" data-close-modal="document-modal">Batal</button><button type="submit" class="admin-primary-button">Simpan Dokumen</button></div>
+    </form>
+  </dialog>
+
+  <!-- MEMBER MODAL -->
+  <dialog class="admin-modal" id="member-modal">
+    <form method="dialog" class="admin-modal-card" id="member-form">
+      <div class="admin-modal-head"><div><span>Struktur</span><h3 id="member-modal-title">Tambah Anggota</h3></div><button type="button" data-close-modal="member-modal">×</button></div>
+      <input type="hidden" name="id"><input type="hidden" name="ministryKey">
+      <div class="admin-form-grid admin-form-grid--modal">
+        <label class="admin-field-wide"><span>Kementerian</span><select name="ministrySelect"></select></label>
+        <label><span>Nama lengkap</span><input name="name" required placeholder="Nama anggota"></label>
+        <label><span>Jabatan/Peran</span><input name="role" value="Anggota" placeholder="Anggota"></label>
+        <label class="admin-field-wide"><span>Upload foto demo <small>(maks. 3 MB)</small></span><input type="file" name="photoFile" accept="image/*"></label>
+        <label class="admin-field-wide"><span>atau path foto</span><input name="photo" placeholder="assets/img/pengurus/.../foto.jpg"></label>
+      </div>
+      <div class="admin-modal-actions"><button type="button" class="admin-secondary-button" data-close-modal="member-modal">Batal</button><button type="submit" class="admin-primary-button">Simpan Anggota</button></div>
+    </form>
+  </dialog>
+
+  <!-- SPECIAL MODAL -->
+  <dialog class="admin-modal" id="special-modal">
+    <form method="dialog" class="admin-modal-card" id="special-form">
+      <div class="admin-modal-head"><div><span>Struktur</span><h3 id="special-modal-title">Tambah Lembaga Khusus</h3></div><button type="button" data-close-modal="special-modal">×</button></div>
+      <input type="hidden" name="id">
+      <div class="admin-form-grid admin-form-grid--modal">
+        <label><span>Kode</span><input name="code" placeholder="LK01"></label>
+        <label><span>Nama lembaga</span><input name="name" required placeholder="Nama lembaga khusus"></label>
+        <label class="admin-field-wide"><span>Deskripsi</span><textarea name="description" rows="4" placeholder="Fungsi singkat lembaga"></textarea></label>
+      </div>
+      <div class="admin-modal-actions"><button type="button" class="admin-secondary-button" data-close-modal="special-modal">Batal</button><button type="submit" class="admin-primary-button">Simpan Lembaga</button></div>
+    </form>
+  </dialog>
+
+  <div class="admin-toast" id="admin-toast" role="status" aria-live="polite"></div>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

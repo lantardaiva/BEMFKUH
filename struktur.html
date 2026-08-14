@@ -1,18 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Struktur Kabinet Metamorfosis BEM KEMA FK Unhas 2026.">
-  <meta name="theme-color" content="#6f2228">
-  <title>Struktur Kabinet | BEM KEMA FK Unhas</title>
-  <link rel="icon" href="assets/img/favicon.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Struktur Kabinet Metamorfosis BEM KEMA FK Unhas 2026." name="description"/>
+<meta content="#6f2228" name="theme-color"/>
+<title>Struktur Kabinet | BEM KEMA FK Unhas</title>
+<link href="assets/img/favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<style>
     /* Penambahan khusus halaman struktur. Seluruh aturan ditempatkan di file ini agar berkas lain tetap identik. */
     .photo-slot { position: relative; overflow: hidden; background: linear-gradient(145deg, rgba(125,43,50,.12), rgba(35,38,61,.1)); }
     .photo-slot::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255,255,255,.22); border-radius: inherit; pointer-events: none; }
@@ -61,7 +61,7 @@
     .member-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 22px 0 12px; }
     .member-heading strong { color: rgba(255,255,255,.85); font: 600 10px var(--font-display); }
     .member-heading span { color: rgba(255,255,255,.42); font-size: 8px; letter-spacing: .07em; text-transform: uppercase; }
-    .member-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 9px; }
+    .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(86px, 1fr)); gap: 11px; }
     .member-card { min-width: 0; }
     .member-photo { width: 100%; aspect-ratio: 1 / 1; border-radius: 12px; background: rgba(255,255,255,.065); }
     .member-card strong { display: block; margin-top: 7px; overflow: hidden; color: rgba(255,255,255,.82); font-size: 7.5px; font-weight: 500; line-height: 1.35; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
@@ -69,17 +69,29 @@
     .photo-guide { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; padding: 16px 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 13px; background: rgba(255,255,255,.05); color: rgba(255,255,255,.58); font-size: 9px; }
     .photo-guide b { flex: 0 0 auto; color: #e6b1b4; font-size: 9px; }
 
+
+    .member-heading span[data-member-count] { white-space: nowrap; }
+    .support-grid:empty::before {
+      content: "Belum ada lembaga khusus yang ditambahkan.";
+      display: block;
+      grid-column: 1 / -1;
+      padding: 26px;
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      color: var(--ink-soft);
+      text-align: center;
+      background: rgba(255,255,255,.55);
+    }
+
     @media (max-width: 1080px) {
       .management-gallery { grid-template-columns: repeat(4, 1fr); }
       .member-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .member-card:nth-child(5) { display: none; }
     }
     @media (max-width: 850px) {
       .gallery-intro { align-items: flex-start; flex-direction: column; }
       .management-gallery { grid-template-columns: repeat(3, 1fr); }
       .role-card--with-photo { min-height: 430px; }
       .member-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-      .member-card:nth-child(5) { display: block; }
     }
     @media (max-width: 620px) {
       .management-gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -92,7 +104,6 @@
       .minister-profile { grid-template-columns: 96px 1fr; gap: 15px; }
       .minister-photo { width: 96px; }
       .member-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .member-card:nth-child(4), .member-card:nth-child(5) { display: block; }
     }
     @media (max-width: 390px) {
       .management-gallery { grid-template-columns: 1fr 1fr; }
@@ -104,573 +115,760 @@
   </style>
 </head>
 <body data-page="struktur">
-  <a class="skip-link" href="#main">Lewati ke konten utama</a>
-  <div class="utility-bar"><div class="container utility-inner"><span>BEM KEMA FK UNHAS</span><span class="utility-dot"></span><span>Kabinet Metamorfosis 2026</span><a href="transparansi.html">Portal Transparansi</a></div></div>
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a class="brand-lockup" href="index.html" aria-label="Beranda BEM KEMA FK Unhas">
-        <span class="brand-logo brand-logo--unhas"><img src="assets/img/logo-unhas.png" alt="Logo Universitas Hasanuddin"></span><span class="brand-connector">›</span>
-        <span class="brand-logo brand-logo--kema"><img src="assets/img/logo-kema.png" alt="Logo Keluarga Mahasiswa Fakultas Kedokteran Unhas"></span><span class="brand-connector">›</span>
-        <span class="brand-logo brand-logo--cabinet"><img src="assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis"></span>
-        <span class="brand-copy"><strong>BEM KEMA FK UNHAS</strong><small>Metamorfosis 2026</small></span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama">
-        <a href="index.html" data-nav="home">Beranda</a><a href="index.html#tentang">Tentang</a><a href="struktur.html" data-nav="struktur">Struktur</a><a href="index.html#program">Program</a><a href="mkpk.html" data-nav="mkpk">MKPK</a><a href="transparansi.html" data-nav="transparansi">Transparansi</a><a href="aspirasi.html" class="nav-cta" data-nav="aspirasi">Sampaikan Aspirasi</a>
-      </nav>
-    </div>
-  </header>
+<a class="skip-link" href="#main">Lewati ke konten utama</a>
+<div class="utility-bar"><div class="container utility-inner"><span>BEM KEMA FK UNHAS</span><span class="utility-dot"></span><span>Kabinet Metamorfosis 2026</span><a href="transparansi.html">Portal Transparansi</a></div></div>
+<header class="site-header" id="site-header">
+<div class="container header-inner">
+<a aria-label="Beranda BEM KEMA FK Unhas" class="brand-lockup" href="index.html">
+<span class="brand-logo brand-logo--unhas"><img alt="Logo Universitas Hasanuddin" src="assets/img/logo-unhas.png"/></span><span class="brand-connector">›</span>
+<span class="brand-logo brand-logo--kema"><img alt="Logo Keluarga Mahasiswa Fakultas Kedokteran Unhas" src="assets/img/logo-kema.png"/></span><span class="brand-connector">›</span>
+<span class="brand-logo brand-logo--cabinet"><img alt="Logo Kabinet Metamorfosis" src="assets/img/logo-metamorfosis.png"/></span>
+<span class="brand-copy"><strong>BEM KEMA FK UNHAS</strong><small>Metamorfosis 2026</small></span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Buka menu navigasi" class="nav-toggle" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="Navigasi utama" class="primary-nav" id="primary-nav">
+<a data-nav="home" href="index.html">Beranda</a><a href="index.html#tentang">Tentang</a><a data-nav="struktur" href="struktur.html">Struktur</a><a href="index.html#program">Program</a><a data-nav="mkpk" href="mkpk.html">MKPK</a><a data-nav="transparansi" href="transparansi.html">Transparansi</a><a class="nav-cta" data-nav="aspirasi" href="aspirasi.html">Sampaikan Aspirasi</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="page-hero page-hero--structure">
+<div class="page-hero-pattern"></div>
+<div class="container page-hero-grid">
+<div class="reveal">
+<div class="eyebrow eyebrow--light"><span></span>Struktur Organisasi</div>
+<h1>Kabinet yang terhubung oleh tujuan, bukan sekadar jabatan.</h1>
+<p>Struktur Kabinet Metamorfosis dirancang untuk memperjelas garis koordinasi, tanggung jawab, serta kolaborasi lintas fungsi dalam melayani mahasiswa FK Unhas.</p>
+</div>
+<div class="page-hero-mark reveal reveal-delay-1"><img alt="Logo Kabinet Metamorfosis" src="assets/img/logo-metamorfosis.png"/></div>
+</div>
+</section>
+<section class="section section--soft">
+<div class="container org-overview reveal">
+<div class="org-level org-level--top"><span>Presidium</span><strong>Pengarah strategis dan penanggung jawab utama kabinet</strong></div>
+<div class="org-line"></div>
+<div class="org-level org-level--middle"><span>10 Kementerian</span><strong>Pelaksana bidang kerja dan layanan kemahasiswaan</strong></div>
+<div class="org-line"></div>
+<div class="org-level org-level--bottom"><span id="special-institution-overview-label">Lembaga Khusus</span><strong id="special-institution-overview-copy">Unit khusus yang dapat ditambah atau dikurangi sesuai kebutuhan organisasi</strong></div>
+</div>
+</section>
+<section class="section" id="galeri-pengurus">
+<div class="container">
+<div class="gallery-intro reveal">
+<div class="section-heading">
+<div><div class="eyebrow"><span></span>Galeri Kepengurusan</div><h2>Wajah-wajah yang menggerakkan Metamorfosis.</h2></div>
+<p>Galeri utama menampilkan jajaran presidium dan seluruh menteri sebagai pintu masuk untuk mengenal struktur kepengurusan Kabinet Metamorfosis 2026.</p>
+</div>
+<div class="gallery-meta">5 presidium · 10 menteri · anggota fleksibel</div>
+</div>
+<div aria-label="Filter galeri pengurus" class="gallery-toolbar reveal">
+<button class="gallery-filter is-active" data-gallery-filter="all" type="button">Semua Pengurus</button>
+<button class="gallery-filter" data-gallery-filter="presidium" type="button">Presidium</button>
+<button class="gallery-filter" data-gallery-filter="menteri" type="button">Menteri</button>
+</div>
+<div class="management-gallery" id="management-gallery">
+<article class="management-card reveal" data-gallery-group="presidium">
+<div class="management-photo photo-slot"><img alt="Foto Presiden" data-initials="P" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/presiden.jpg"/></div>
+<div class="management-copy"><span>Presidium · P01</span><h3>Nama Presiden</h3><p>Presiden</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="presidium">
+<div class="management-photo photo-slot"><img alt="Foto Wakil Presiden" data-initials="WP" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/wakil-presiden.jpg"/></div>
+<div class="management-copy"><span>Presidium · P02</span><h3>Nama Wakil Presiden</h3><p>Wakil Presiden</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="presidium">
+<div class="management-photo photo-slot"><img alt="Foto Sekretaris Umum" data-initials="SU" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/sekretaris-umum.jpg"/></div>
+<div class="management-copy"><span>Presidium · P03</span><h3>Nama Sekretaris Umum</h3><p>Sekretaris Umum</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="presidium">
+<div class="management-photo photo-slot"><img alt="Foto Bendahara Umum" data-initials="BU" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/bendahara-umum.jpg"/></div>
+<div class="management-copy"><span>Presidium · P04</span><h3>Nama Bendahara Umum</h3><p>Bendahara Umum</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="presidium">
+<div class="management-photo photo-slot"><img alt="Foto Wakil Bendahara Umum" data-initials="WB" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/wakil-bendahara-umum.jpg"/></div>
+<div class="management-copy"><span>Presidium · P05</span><h3>Nama Wakil Bendahara Umum</h3><p>Wakil Bendahara Umum</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Keagamaan" data-initials="KG" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 01</span><h3>Nama Menteri</h3><p>Keagamaan</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Pengembangan Sumber Daya Manusia" data-initials="PSDM" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/02-psdm/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 02</span><h3>Nama Menteri</h3><p>Pengembangan Sumber Daya Manusia</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Kajian Strategis dan Advokasi" data-initials="KSA" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 03</span><h3>Nama Menteri</h3><p>Kajian Strategis dan Advokasi</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Komunikasi dan Informasi" data-initials="KOMI" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 04</span><h3>Nama Menteri</h3><p>Komunikasi dan Informasi</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Hubungan Luar" data-initials="HUBL" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 05</span><h3>Nama Menteri</h3><p>Hubungan Luar</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Administrasi dan Kesekretariatan" data-initials="ADKE" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 06</span><h3>Nama Menteri</h3><p>Administrasi dan Kesekretariatan</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Keuangan" data-initials="KEU" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/07-keuangan/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 07</span><h3>Nama Menteri</h3><p>Keuangan</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Pendidikan dan Profesi" data-initials="PEND" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 08</span><h3>Nama Menteri</h3><p>Pendidikan dan Profesi</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Pengabdian Masyarakat" data-initials="PENG" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 09</span><h3>Nama Menteri</h3><p>Pengabdian Masyarakat</p></div>
+</article>
+<article class="management-card reveal" data-gallery-group="menteri">
+<div class="management-photo photo-slot"><img alt="Foto Menteri Pengabdian Minat dan Bakat" data-initials="PMB" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/menteri.jpg"/></div>
+<div class="management-copy"><span>Kementerian · 10</span><h3>Nama Menteri</h3><p>Pengabdian Minat dan Bakat</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="presidium">
+<div class="container">
+<div class="section-heading reveal">
+<div><div class="eyebrow"><span></span>Presidium</div><h2>Pusat koordinasi dan arah strategis.</h2></div>
+<p>Presidium memastikan keputusan, sumber daya, dan pelaksanaan program kabinet tetap selaras dengan kebutuhan mahasiswa dan mandat organisasi.</p>
+</div>
+<div class="presidium-grid">
+<article class="role-card role-card--with-photo role-card--primary reveal">
+<div class="role-index">P01</div><div class="role-symbol">PR</div><span>Presidium</span><h3>Presiden</h3>
+<div class="role-person">
+<div class="role-photo photo-slot"><img alt="Foto Presiden" data-initials="P" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/presiden.jpg"/></div>
+<div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Presiden</strong><em>Presiden</em></div>
+</div>
+<p>Memimpin kabinet, menetapkan arah strategis, serta merepresentasikan organisasi dalam pengambilan keputusan utama.</p>
+</article>
+<article class="role-card role-card--with-photo role-card--primary reveal reveal-delay-1">
+<div class="role-index">P02</div><div class="role-symbol">WP</div><span>Presidium</span><h3>Wakil Presiden</h3>
+<div class="role-person">
+<div class="role-photo photo-slot"><img alt="Foto Wakil Presiden" data-initials="WP" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/wakil-presiden.jpg"/></div>
+<div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Wakil Presiden</strong><em>Wakil Presiden</em></div>
+</div>
+<p>Mendampingi kepemimpinan kabinet, mengintegrasikan kerja lintas kementerian, dan memastikan tindak lanjut kebijakan.</p>
+</article>
+<article class="role-card role-card--with-photo reveal reveal-delay-2">
+<div class="role-index">P03</div><div class="role-symbol">SU</div><span>Presidium</span><h3>Sekretaris Umum</h3>
+<div class="role-person">
+<div class="role-photo photo-slot"><img alt="Foto Sekretaris Umum" data-initials="SU" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/sekretaris-umum.jpg"/></div>
+<div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Sekretaris Umum</strong><em>Sekretaris Umum</em></div>
+</div>
+<p>Mengelola administrasi strategis, dokumentasi keputusan, korespondensi, dan sistem informasi internal kabinet.</p>
+</article>
+<article class="role-card role-card--with-photo reveal">
+<div class="role-index">P04</div><div class="role-symbol">BU</div><span>Presidium</span><h3>Bendahara Umum</h3>
+<div class="role-person">
+<div class="role-photo photo-slot"><img alt="Foto Bendahara Umum" data-initials="BU" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/bendahara-umum.jpg"/></div>
+<div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Bendahara Umum</strong><em>Bendahara Umum</em></div>
+</div>
+<p>Mengendalikan perencanaan, pencatatan, pelaporan, dan akuntabilitas pengelolaan keuangan organisasi.</p>
+</article>
+<article class="role-card role-card--with-photo reveal reveal-delay-1">
+<div class="role-index">P05</div><div class="role-symbol">WB</div><span>Presidium</span><h3>Wakil Bendahara Umum</h3>
+<div class="role-person">
+<div class="role-photo photo-slot"><img alt="Foto Wakil Bendahara Umum" data-initials="WB" data-label="Presidium" data-photo-src="assets/img/pengurus/presidium/wakil-bendahara-umum.jpg"/></div>
+<div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Wakil Bendahara Umum</strong><em>Wakil Bendahara Umum</em></div>
+</div>
+<p>Mendukung kontrol keuangan, verifikasi dokumen, pemantauan realisasi, dan konsolidasi laporan anggaran.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section section--dark" id="menteri">
+<div class="container">
+<div class="section-heading section-heading--light reveal">
+<div><div class="eyebrow eyebrow--light"><span></span>Kementerian</div><h2>Sepuluh bidang kerja, satu orientasi pelayanan.</h2></div>
+<p>Setiap kementerian memiliki mandat spesifik, tetapi program prioritas tetap dijalankan secara lintas bidang ketika masalah mahasiswa memerlukan respons terintegrasi.</p>
+</div>
+<div class="ministry-toolbar reveal">
+<label for="ministry-search">Cari kementerian</label>
+<div class="search-box"><input id="ministry-search" placeholder="Contoh: advokasi atau pendidikan" type="search"/><span>⌕</span></div>
+</div>
+<div class="ministry-grid" id="ministry-grid">
+<article class="ministry-card reveal" data-search="keagamaan spiritual pembinaan nilai" data-unit-key="01-keagamaan">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>01</span><b>KG</b></div><h3>Keagamaan</h3><p>Fasilitasi kegiatan spiritual, penguatan nilai, dan ruang keberagaman yang saling menghormati.</p><small>Nilai · Kerohanian · Inklusivitas</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Keagamaan" data-initials="KG" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="01-keagamaan">0 anggota</span></div>
+<div class="member-grid" data-members-for="01-keagamaan"></div>
+</div>
+</article>
+<article class="ministry-card reveal reveal-delay-1" data-search="pengembangan sumber daya manusia psdm kaderisasi internal" data-unit-key="02-psdm">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>02</span><b>PSDM</b></div><h3>Pengembangan Sumber Daya Manusia</h3><p>Kaderisasi, pemetaan kapasitas, evaluasi pengurus, dan pengembangan kompetensi organisasi.</p><small>Kaderisasi · Kapasitas · Evaluasi</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Pengembangan Sumber Daya Manusia" data-initials="PSDM" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/02-psdm/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="02-psdm">0 anggota</span></div>
+<div class="member-grid" data-members-for="02-psdm"></div>
+</div>
+</article>
+<article class="ministry-card reveal reveal-delay-2" data-search="kajian strategis advokasi kastrat pengaduan kebijakan" data-unit-key="03-kajian-strategis-advokasi">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>03</span><b>KSA</b></div><h3>Kajian Strategis dan Advokasi</h3><p>Pemetaan isu, kajian kebijakan, pengelolaan aspirasi, dan pendampingan kepentingan mahasiswa.</p><small>Kajian · Aspirasi · Advokasi</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Kajian Strategis dan Advokasi" data-initials="KSA" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="03-kajian-strategis-advokasi">0 anggota</span></div>
+<div class="member-grid" data-members-for="03-kajian-strategis-advokasi"></div>
+</div>
+</article>
+<article class="ministry-card reveal" data-search="komunikasi informasi kominfo media publikasi desain" data-unit-key="04-komunikasi-informasi">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>04</span><b>KOMINFO</b></div><h3>Komunikasi dan Informasi</h3><p>Pengelolaan media, publikasi, dokumentasi, identitas visual, dan komunikasi publik organisasi.</p><small>Media · Publikasi · Informasi</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Komunikasi dan Informasi" data-initials="KOMI" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="04-komunikasi-informasi">0 anggota</span></div>
+<div class="member-grid" data-members-for="04-komunikasi-informasi"></div>
+</div>
+</article>
+<article class="ministry-card reveal reveal-delay-1" data-search="hubungan luar hublu eksternal jejaring kemitraan" data-unit-key="05-hubungan-luar">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>05</span><b>HUBLU</b></div><h3>Hubungan Luar</h3><p>Pengembangan jejaring, kemitraan, diplomasi organisasi, dan relasi lintas institusi.</p><small>Jejaring · Kemitraan · Diplomasi</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Hubungan Luar" data-initials="HUBL" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="05-hubungan-luar">0 anggota</span></div>
+<div class="member-grid" data-members-for="05-hubungan-luar"></div>
+</div>
+</article>
+<article class="ministry-card reveal reveal-delay-2" data-search="administrasi kesekretariatan adkes surat arsip sekretariat" data-unit-key="06-administrasi-kesekretariatan">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>06</span><b>ADKES</b></div><h3>Administrasi dan Kesekretariatan</h3><p>Standarisasi surat, pengarsipan, inventaris, pengelolaan sekretariat, dan dukungan administratif.</p><small>Administrasi · Arsip · Inventaris</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Administrasi dan Kesekretariatan" data-initials="ADKE" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="06-administrasi-kesekretariatan">0 anggota</span></div>
+<div class="member-grid" data-members-for="06-administrasi-kesekretariatan"></div>
+</div>
+</article>
+<article class="ministry-card reveal" data-search="keuangan anggaran usaha dana pelaporan" data-unit-key="07-keuangan">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>07</span><b>KEU</b></div><h3>Keuangan</h3><p>Pengelolaan teknis anggaran, administrasi transaksi, pengembangan dana, dan laporan keuangan.</p><small>Anggaran · Pencatatan · Dana</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Keuangan" data-initials="KEU" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/07-keuangan/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="07-keuangan">0 anggota</span></div>
+<div class="member-grid" data-members-for="07-keuangan"></div>
+</div>
+</article>
+<article class="ministry-card reveal reveal-delay-1" data-search="pendidikan profesi akademik belajar karier kedokteran" data-unit-key="08-pendidikan-profesi">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>08</span><b>PENDPRO</b></div><h3>Pendidikan dan Profesi</h3><p>Pendampingan akademik, pengembangan profesi, informasi pendidikan, dan kebutuhan pembelajaran.</p><small>Akademik · Profesi · Karier</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Pendidikan dan Profesi" data-initials="PEND" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="08-pendidikan-profesi">0 anggota</span></div>
+<div class="member-grid" data-members-for="08-pendidikan-profesi"></div>
+</div>
+</article>
+<article class="ministry-card reveal reveal-delay-2" data-search="pengabdian masyarakat pengmas kesehatan sosial desa" data-unit-key="09-pengabdian-masyarakat">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>09</span><b>PENGMAS</b></div><h3>Pengabdian Masyarakat</h3><p>Perencanaan intervensi kesehatan, penguatan komunitas, edukasi publik, dan aksi sosial.</p><small>Kesehatan · Komunitas · Sosial</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Pengabdian Masyarakat" data-initials="PENG" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="09-pengabdian-masyarakat">0 anggota</span></div>
+<div class="member-grid" data-members-for="09-pengabdian-masyarakat"></div>
+</div>
+</article>
+<article class="ministry-card reveal" data-search="pengabdian minat bakat olahraga seni kreativitas komunitas" data-unit-key="10-minat-bakat">
+<div class="ministry-card-head">
+<div class="ministry-top"><span>10</span><b>PMB</b></div><h3>Pengabdian Minat dan Bakat</h3><p>Fasilitasi olahraga, seni, kreativitas, komunitas, serta aktualisasi potensi mahasiswa.</p><small>Olahraga · Seni · Kreativitas</small>
+</div>
+<div class="ministry-team">
+<div class="minister-profile">
+<div class="minister-photo photo-slot"><img alt="Foto Menteri Pengabdian Minat dan Bakat" data-initials="PMB" data-label="Menteri" data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/menteri.jpg"/></div>
+<div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
+</div>
+<div class="member-heading"><strong>Anggota Kementerian</strong><span data-member-count="10-minat-bakat">0 anggota</span></div>
+<div class="member-grid" data-members-for="10-minat-bakat"></div>
+</div>
+</article>
+</div>
+<p class="empty-state" hidden="" id="ministry-empty">Tidak ada kementerian yang cocok dengan pencarian.</p>
+<div class="photo-guide reveal"><b>Struktur fleksibel</b><span>Jumlah anggota setiap kementerian dan jumlah lembaga khusus kini mengikuti konfigurasi data di bagian paling bawah <code>struktur.html</code>. Tambahkan atau hapus objek pada array tanpa perlu membuat slot HTML baru. Foto tetap menggunakan folder <code>assets/img/pengurus/</code>.</span></div>
+</div>
+</section>
+<section class="section" id="pendukung">
+<div class="container">
+<div class="section-heading reveal">
+<div>
+<div class="eyebrow"><span></span>Lembaga Khusus</div>
+<h2>Struktur tambahan yang mengikuti kebutuhan organisasi.</h2>
+</div>
+<p>Jumlah lembaga khusus tidak dikunci. Bagian ini dirender dari konfigurasi sehingga unit dapat ditambah, dikurangi, atau dikosongkan tanpa mengubah layout utama halaman.</p>
+</div>
+<div class="support-grid" id="special-institution-grid"></div>
+</div>
+</section>
+<section class="section section--soft">
+<div class="container responsibility-panel reveal">
+<div><div class="eyebrow"><span></span>Akuntabilitas Jabatan</div><h2>Setiap posisi harus memiliki keluaran yang dapat dievaluasi.</h2></div>
+<div class="responsibility-list">
+<div><span>01</span><p><strong>Mandat tertulis</strong> Tugas pokok dan batas kewenangan terdokumentasi.</p></div>
+<div><span>02</span><p><strong>Indikator kinerja</strong> Target program, jadwal, dan hasil dapat diukur.</p></div>
+<div><span>03</span><p><strong>Pelaporan berkala</strong> Progres, kendala, dan penggunaan sumber daya dilaporkan.</p></div>
+<div><span>04</span><p><strong>Evaluasi dan perbaikan</strong> Temuan evaluasi diterjemahkan menjadi tindak lanjut nyata.</p></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-brand"><div class="footer-logos"><img alt="Logo Universitas Hasanuddin" src="assets/img/logo-unhas.png"/><img alt="Logo KEMA FK Unhas" src="assets/img/logo-kema.png"/><img alt="Logo Kabinet Metamorfosis" src="assets/img/logo-metamorfosis.png"/></div><h3>BEM KEMA FK UNHAS</h3><p>Kabinet Metamorfosis 2026</p><small>Fakultas Kedokteran Universitas Hasanuddin, Makassar</small></div>
+<div><h4>Navigasi</h4><a href="index.html">Beranda</a><a href="struktur.html">Struktur Kabinet</a><a href="mkpk.html">Simulator MKPK</a><a href="transparansi.html">Transparansi</a><a href="aspirasi.html">Aspirasi</a></div>
+<div><h4>Layanan</h4><a href="aspirasi.html#form-aspirasi">Pengaduan Mahasiswa</a><a href="transparansi.html#dokumen">Dokumen Publik</a><a href="index.html#agenda">Kalender Kegiatan</a><a href="mailto:bemfk@unhas.ac.id">Kemitraan</a></div>
+<div><h4>Kontak</h4><a href="mailto:bemfk@unhas.ac.id">bemfk@unhas.ac.id</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">YouTube</a><a href="admin/login.html">Administrator</a></div>
+</div>
+<div class="container footer-bottom"><span>© 2026 BEM KEMA FK Unhas. Seluruh hak cipta dilindungi.</span><span>Dirancang untuk tata kelola yang terbuka.</span></div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>
+/*
+============================================================
+KONFIGURASI STRUKTUR FLEKSIBEL
+============================================================
 
-  <main id="main">
-    <section class="page-hero page-hero--structure">
-      <div class="page-hero-pattern"></div>
-      <div class="container page-hero-grid">
-        <div class="reveal">
-          <div class="eyebrow eyebrow--light"><span></span>Struktur Organisasi</div>
-          <h1>Kabinet yang terhubung oleh tujuan, bukan sekadar jabatan.</h1>
-          <p>Struktur Kabinet Metamorfosis dirancang untuk memperjelas garis koordinasi, tanggung jawab, serta kolaborasi lintas fungsi dalam melayani mahasiswa FK Unhas.</p>
-        </div>
-        <div class="page-hero-mark reveal reveal-delay-1"><img src="assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis"></div>
-      </div>
-    </section>
+ANGGOTA KEMENTERIAN
+- Tidak ada lagi batas 5 anggota.
+- Tambah objek di array "members" untuk menambah orang.
+- Hapus objek untuk mengurangi orang.
+- Grid foto akan menyesuaikan otomatis.
 
-    <section class="section section--soft">
-      <div class="container org-overview reveal">
-        <div class="org-level org-level--top"><span>Presidium</span><strong>Pengarah strategis dan penanggung jawab utama kabinet</strong></div>
-        <div class="org-line"></div>
-        <div class="org-level org-level--middle"><span>10 Kementerian</span><strong>Pelaksana bidang kerja dan layanan kemahasiswaan</strong></div>
-        <div class="org-line"></div>
-        <div class="org-level org-level--bottom"><span>Struktur Pendukung</span><strong>Staf, unit pengawasan, dan tim program strategis</strong></div>
-      </div>
-    </section>
+LEMBAGA KHUSUS
+- Tambah/hapus objek di "specialInstitutions".
+- Array boleh kosong.
+- Jumlah lembaga pada diagram organisasi ikut diperbarui otomatis.
 
+FOTO
+- Isi "photo" dengan path file foto.
+- Jika file tidak ditemukan, placeholder otomatis ditampilkan.
+*/
+window.STRUCTURE_DATA = {
+  "ministries": {
+    "01-keagamaan": {
+      "name": "Keagamaan",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/01-keagamaan/anggota-05.jpg"
+        }
+      ]
+    },
+    "02-psdm": {
+      "name": "Pengembangan Sumber Daya Manusia",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/02-psdm/anggota-05.jpg"
+        }
+      ]
+    },
+    "03-kajian-strategis-advokasi": {
+      "name": "Kajian Strategis dan Advokasi",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-05.jpg"
+        }
+      ]
+    },
+    "04-komunikasi-informasi": {
+      "name": "Komunikasi dan Informasi",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-05.jpg"
+        }
+      ]
+    },
+    "05-hubungan-luar": {
+      "name": "Hubungan Luar",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/05-hubungan-luar/anggota-05.jpg"
+        }
+      ]
+    },
+    "06-administrasi-kesekretariatan": {
+      "name": "Administrasi dan Kesekretariatan",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-05.jpg"
+        }
+      ]
+    },
+    "07-keuangan": {
+      "name": "Keuangan",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/07-keuangan/anggota-05.jpg"
+        }
+      ]
+    },
+    "08-pendidikan-profesi": {
+      "name": "Pendidikan dan Profesi",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-05.jpg"
+        }
+      ]
+    },
+    "09-pengabdian-masyarakat": {
+      "name": "Pengabdian Masyarakat",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-05.jpg"
+        }
+      ]
+    },
+    "10-minat-bakat": {
+      "name": "Pengabdian Minat dan Bakat",
+      "members": [
+        {
+          "name": "Nama Anggota 01",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-01.jpg"
+        },
+        {
+          "name": "Nama Anggota 02",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-02.jpg"
+        },
+        {
+          "name": "Nama Anggota 03",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-03.jpg"
+        },
+        {
+          "name": "Nama Anggota 04",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-04.jpg"
+        },
+        {
+          "name": "Nama Anggota 05",
+          "role": "Anggota",
+          "photo": "assets/img/pengurus/kementerian/10-minat-bakat/anggota-05.jpg"
+        }
+      ]
+    }
+  },
+  "specialInstitutions": [
+    {
+      "code": "LK01",
+      "name": "Staf Ahli Presidium",
+      "description": "Memberikan masukan substantif pada isu strategis dan membantu proyek lintas kementerian."
+    },
+    {
+      "code": "LK02",
+      "name": "Badan Pengawasan Internal",
+      "description": "Memantau kepatuhan prosedur, mutu dokumentasi, dan konsistensi pelaporan kinerja."
+    },
+    {
+      "code": "LK03",
+      "name": "Koordinator Program Strategis",
+      "description": "Mengelola program prioritas yang melibatkan beberapa kementerian dan mitra eksternal."
+    },
+    {
+      "code": "LK04",
+      "name": "Tim Ad Hoc",
+      "description": "Dibentuk untuk kebutuhan tertentu dengan mandat, target, dan periode kerja yang terbatas."
+    }
+  ]
+};
 
-    <section class="section" id="galeri-pengurus">
-      <div class="container">
-        <div class="gallery-intro reveal">
-          <div class="section-heading">
-            <div><div class="eyebrow"><span></span>Galeri Kepengurusan</div><h2>Wajah-wajah yang menggerakkan Metamorfosis.</h2></div>
-            <p>Galeri utama menampilkan jajaran presidium dan seluruh menteri sebagai pintu masuk untuk mengenal struktur kepengurusan Kabinet Metamorfosis 2026.</p>
+(() => {
+  const data = window.STRUCTURE_DATA || {};
+  const ministries = data.ministries || {};
+
+  const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+  }[ch]));
+
+  const initialsFromName = (name, index) => {
+    const clean = String(name || "").replace(/^Nama\s+/i, "").trim();
+    const parts = clean.split(/\s+/).filter(Boolean);
+    if (!parts.length || /^Anggota/i.test(clean)) return `A${index + 1}`;
+    return parts.slice(0,2).map(part => part[0]).join("").toUpperCase();
+  };
+
+  Object.entries(ministries).forEach(([key, ministry]) => {
+    const grid = document.querySelector(`[data-members-for="${key}"]`);
+    const count = document.querySelector(`[data-member-count="${key}"]`);
+    if (!grid) return;
+
+    const members = Array.isArray(ministry.members) ? ministry.members : [];
+    if (count) count.textContent = `${members.length} anggota`;
+
+    grid.innerHTML = members.map((member, index) => {
+      const initials = initialsFromName(member.name, index);
+      const photo = escapeHtml(member.photo || "");
+      const name = escapeHtml(member.name || `Nama Anggota ${String(index + 1).padStart(2, "0")}`);
+      const role = escapeHtml(member.role || "Anggota");
+      const alt = escapeHtml(`Foto ${name} - ${ministry.name || "Kementerian"}`);
+      return `
+        <div class="member-card">
+          <div class="member-photo photo-slot">
+            <img data-photo-src="${photo}" data-initials="${initials}" data-label="Anggota" alt="${alt}">
           </div>
-          <div class="gallery-meta">15 posisi koordinator · 5 presidium · 10 menteri</div>
-        </div>
-        <div class="gallery-toolbar reveal" aria-label="Filter galeri pengurus">
-          <button class="gallery-filter is-active" type="button" data-gallery-filter="all">Semua Pengurus</button>
-          <button class="gallery-filter" type="button" data-gallery-filter="presidium">Presidium</button>
-          <button class="gallery-filter" type="button" data-gallery-filter="menteri">Menteri</button>
-        </div>
-        <div class="management-gallery" id="management-gallery">
-          <article class="management-card reveal" data-gallery-group="presidium">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/presiden.jpg" data-initials="P" data-label="Presidium" alt="Foto Presiden"></div>
-            <div class="management-copy"><span>Presidium · P01</span><h3>Nama Presiden</h3><p>Presiden</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="presidium">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/wakil-presiden.jpg" data-initials="WP" data-label="Presidium" alt="Foto Wakil Presiden"></div>
-            <div class="management-copy"><span>Presidium · P02</span><h3>Nama Wakil Presiden</h3><p>Wakil Presiden</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="presidium">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/sekretaris-umum.jpg" data-initials="SU" data-label="Presidium" alt="Foto Sekretaris Umum"></div>
-            <div class="management-copy"><span>Presidium · P03</span><h3>Nama Sekretaris Umum</h3><p>Sekretaris Umum</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="presidium">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/bendahara-umum.jpg" data-initials="BU" data-label="Presidium" alt="Foto Bendahara Umum"></div>
-            <div class="management-copy"><span>Presidium · P04</span><h3>Nama Bendahara Umum</h3><p>Bendahara Umum</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="presidium">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/wakil-bendahara-umum.jpg" data-initials="WB" data-label="Presidium" alt="Foto Wakil Bendahara Umum"></div>
-            <div class="management-copy"><span>Presidium · P05</span><h3>Nama Wakil Bendahara Umum</h3><p>Wakil Bendahara Umum</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/menteri.jpg" data-initials="KG" data-label="Menteri" alt="Foto Menteri Keagamaan"></div>
-            <div class="management-copy"><span>Kementerian · 01</span><h3>Nama Menteri</h3><p>Keagamaan</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/menteri.jpg" data-initials="PSDM" data-label="Menteri" alt="Foto Menteri Pengembangan Sumber Daya Manusia"></div>
-            <div class="management-copy"><span>Kementerian · 02</span><h3>Nama Menteri</h3><p>Pengembangan Sumber Daya Manusia</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/menteri.jpg" data-initials="KSA" data-label="Menteri" alt="Foto Menteri Kajian Strategis dan Advokasi"></div>
-            <div class="management-copy"><span>Kementerian · 03</span><h3>Nama Menteri</h3><p>Kajian Strategis dan Advokasi</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/menteri.jpg" data-initials="KOMI" data-label="Menteri" alt="Foto Menteri Komunikasi dan Informasi"></div>
-            <div class="management-copy"><span>Kementerian · 04</span><h3>Nama Menteri</h3><p>Komunikasi dan Informasi</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/menteri.jpg" data-initials="HUBL" data-label="Menteri" alt="Foto Menteri Hubungan Luar"></div>
-            <div class="management-copy"><span>Kementerian · 05</span><h3>Nama Menteri</h3><p>Hubungan Luar</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/menteri.jpg" data-initials="ADKE" data-label="Menteri" alt="Foto Menteri Administrasi dan Kesekretariatan"></div>
-            <div class="management-copy"><span>Kementerian · 06</span><h3>Nama Menteri</h3><p>Administrasi dan Kesekretariatan</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/menteri.jpg" data-initials="KEU" data-label="Menteri" alt="Foto Menteri Keuangan"></div>
-            <div class="management-copy"><span>Kementerian · 07</span><h3>Nama Menteri</h3><p>Keuangan</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/menteri.jpg" data-initials="PEND" data-label="Menteri" alt="Foto Menteri Pendidikan dan Profesi"></div>
-            <div class="management-copy"><span>Kementerian · 08</span><h3>Nama Menteri</h3><p>Pendidikan dan Profesi</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/menteri.jpg" data-initials="PENG" data-label="Menteri" alt="Foto Menteri Pengabdian Masyarakat"></div>
-            <div class="management-copy"><span>Kementerian · 09</span><h3>Nama Menteri</h3><p>Pengabdian Masyarakat</p></div>
-          </article>
-          <article class="management-card reveal" data-gallery-group="menteri">
-            <div class="management-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/menteri.jpg" data-initials="PMB" data-label="Menteri" alt="Foto Menteri Pengabdian Minat dan Bakat"></div>
-            <div class="management-copy"><span>Kementerian · 10</span><h3>Nama Menteri</h3><p>Pengabdian Minat dan Bakat</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
+          <strong>${name}</strong>
+          <small>${role}</small>
+        </div>`;
+    }).join("");
+  });
 
-    <section class="section" id="presidium">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div><div class="eyebrow"><span></span>Presidium</div><h2>Pusat koordinasi dan arah strategis.</h2></div>
-          <p>Presidium memastikan keputusan, sumber daya, dan pelaksanaan program kabinet tetap selaras dengan kebutuhan mahasiswa dan mandat organisasi.</p>
-        </div>
-        <div class="presidium-grid">
-          <article class="role-card role-card--with-photo role-card--primary reveal">
-            <div class="role-index">P01</div><div class="role-symbol">PR</div><span>Presidium</span><h3>Presiden</h3>
-            <div class="role-person">
-              <div class="role-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/presiden.jpg" data-initials="P" data-label="Presidium" alt="Foto Presiden"></div>
-              <div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Presiden</strong><em>Presiden</em></div>
-            </div>
-            <p>Memimpin kabinet, menetapkan arah strategis, serta merepresentasikan organisasi dalam pengambilan keputusan utama.</p>
-          </article>
-          <article class="role-card role-card--with-photo role-card--primary reveal reveal-delay-1">
-            <div class="role-index">P02</div><div class="role-symbol">WP</div><span>Presidium</span><h3>Wakil Presiden</h3>
-            <div class="role-person">
-              <div class="role-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/wakil-presiden.jpg" data-initials="WP" data-label="Presidium" alt="Foto Wakil Presiden"></div>
-              <div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Wakil Presiden</strong><em>Wakil Presiden</em></div>
-            </div>
-            <p>Mendampingi kepemimpinan kabinet, mengintegrasikan kerja lintas kementerian, dan memastikan tindak lanjut kebijakan.</p>
-          </article>
-          <article class="role-card role-card--with-photo reveal reveal-delay-2">
-            <div class="role-index">P03</div><div class="role-symbol">SU</div><span>Presidium</span><h3>Sekretaris Umum</h3>
-            <div class="role-person">
-              <div class="role-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/sekretaris-umum.jpg" data-initials="SU" data-label="Presidium" alt="Foto Sekretaris Umum"></div>
-              <div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Sekretaris Umum</strong><em>Sekretaris Umum</em></div>
-            </div>
-            <p>Mengelola administrasi strategis, dokumentasi keputusan, korespondensi, dan sistem informasi internal kabinet.</p>
-          </article>
-          <article class="role-card role-card--with-photo reveal">
-            <div class="role-index">P04</div><div class="role-symbol">BU</div><span>Presidium</span><h3>Bendahara Umum</h3>
-            <div class="role-person">
-              <div class="role-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/bendahara-umum.jpg" data-initials="BU" data-label="Presidium" alt="Foto Bendahara Umum"></div>
-              <div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Bendahara Umum</strong><em>Bendahara Umum</em></div>
-            </div>
-            <p>Mengendalikan perencanaan, pencatatan, pelaporan, dan akuntabilitas pengelolaan keuangan organisasi.</p>
-          </article>
-          <article class="role-card role-card--with-photo reveal reveal-delay-1">
-            <div class="role-index">P05</div><div class="role-symbol">WB</div><span>Presidium</span><h3>Wakil Bendahara Umum</h3>
-            <div class="role-person">
-              <div class="role-photo photo-slot"><img data-photo-src="assets/img/pengurus/presidium/wakil-bendahara-umum.jpg" data-initials="WB" data-label="Presidium" alt="Foto Wakil Bendahara Umum"></div>
-              <div class="role-person-copy"><small>Pengurus 2026</small><strong>Nama Wakil Bendahara Umum</strong><em>Wakil Bendahara Umum</em></div>
-            </div>
-            <p>Mendukung kontrol keuangan, verifikasi dokumen, pemantauan realisasi, dan konsolidasi laporan anggaran.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+  const institutionGrid = document.getElementById("special-institution-grid");
+  const institutions = Array.isArray(data.specialInstitutions) ? data.specialInstitutions : [];
 
-    <section class="section section--dark" id="menteri">
-      <div class="container">
-        <div class="section-heading section-heading--light reveal">
-          <div><div class="eyebrow eyebrow--light"><span></span>Kementerian</div><h2>Sepuluh bidang kerja, satu orientasi pelayanan.</h2></div>
-          <p>Setiap kementerian memiliki mandat spesifik, tetapi program prioritas tetap dijalankan secara lintas bidang ketika masalah mahasiswa memerlukan respons terintegrasi.</p>
-        </div>
-        <div class="ministry-toolbar reveal">
-          <label for="ministry-search">Cari kementerian</label>
-          <div class="search-box"><input id="ministry-search" type="search" placeholder="Contoh: advokasi atau pendidikan"><span>⌕</span></div>
-        </div>
-        <div class="ministry-grid" id="ministry-grid">
-          <article class="ministry-card reveal" data-search="keagamaan spiritual pembinaan nilai">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>01</span><b>KG</b></div><h3>Keagamaan</h3><p>Fasilitasi kegiatan spiritual, penguatan nilai, dan ruang keberagaman yang saling menghormati.</p><small>Nilai · Kerohanian · Inklusivitas</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/menteri.jpg" data-initials="KG" data-label="Menteri" alt="Foto Menteri Keagamaan"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Keagamaan"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Keagamaan"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Keagamaan"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Keagamaan"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/01-keagamaan/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Keagamaan"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal reveal-delay-1" data-search="pengembangan sumber daya manusia psdm kaderisasi internal">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>02</span><b>PSDM</b></div><h3>Pengembangan Sumber Daya Manusia</h3><p>Kaderisasi, pemetaan kapasitas, evaluasi pengurus, dan pengembangan kompetensi organisasi.</p><small>Kaderisasi · Kapasitas · Evaluasi</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/menteri.jpg" data-initials="PSDM" data-label="Menteri" alt="Foto Menteri Pengembangan Sumber Daya Manusia"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Pengembangan Sumber Daya Manusia"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Pengembangan Sumber Daya Manusia"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Pengembangan Sumber Daya Manusia"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Pengembangan Sumber Daya Manusia"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/02-psdm/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Pengembangan Sumber Daya Manusia"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal reveal-delay-2" data-search="kajian strategis advokasi kastrat pengaduan kebijakan">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>03</span><b>KSA</b></div><h3>Kajian Strategis dan Advokasi</h3><p>Pemetaan isu, kajian kebijakan, pengelolaan aspirasi, dan pendampingan kepentingan mahasiswa.</p><small>Kajian · Aspirasi · Advokasi</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/menteri.jpg" data-initials="KSA" data-label="Menteri" alt="Foto Menteri Kajian Strategis dan Advokasi"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Kajian Strategis dan Advokasi"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Kajian Strategis dan Advokasi"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Kajian Strategis dan Advokasi"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Kajian Strategis dan Advokasi"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/03-kajian-strategis-advokasi/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Kajian Strategis dan Advokasi"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal" data-search="komunikasi informasi kominfo media publikasi desain">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>04</span><b>KOMINFO</b></div><h3>Komunikasi dan Informasi</h3><p>Pengelolaan media, publikasi, dokumentasi, identitas visual, dan komunikasi publik organisasi.</p><small>Media · Publikasi · Informasi</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/menteri.jpg" data-initials="KOMI" data-label="Menteri" alt="Foto Menteri Komunikasi dan Informasi"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Komunikasi dan Informasi"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Komunikasi dan Informasi"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Komunikasi dan Informasi"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Komunikasi dan Informasi"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/04-komunikasi-informasi/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Komunikasi dan Informasi"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal reveal-delay-1" data-search="hubungan luar hublu eksternal jejaring kemitraan">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>05</span><b>HUBLU</b></div><h3>Hubungan Luar</h3><p>Pengembangan jejaring, kemitraan, diplomasi organisasi, dan relasi lintas institusi.</p><small>Jejaring · Kemitraan · Diplomasi</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/menteri.jpg" data-initials="HUBL" data-label="Menteri" alt="Foto Menteri Hubungan Luar"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Hubungan Luar"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Hubungan Luar"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Hubungan Luar"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Hubungan Luar"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/05-hubungan-luar/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Hubungan Luar"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal reveal-delay-2" data-search="administrasi kesekretariatan adkes surat arsip sekretariat">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>06</span><b>ADKES</b></div><h3>Administrasi dan Kesekretariatan</h3><p>Standarisasi surat, pengarsipan, inventaris, pengelolaan sekretariat, dan dukungan administratif.</p><small>Administrasi · Arsip · Inventaris</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/menteri.jpg" data-initials="ADKE" data-label="Menteri" alt="Foto Menteri Administrasi dan Kesekretariatan"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Administrasi dan Kesekretariatan"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Administrasi dan Kesekretariatan"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Administrasi dan Kesekretariatan"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Administrasi dan Kesekretariatan"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/06-administrasi-kesekretariatan/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Administrasi dan Kesekretariatan"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal" data-search="keuangan anggaran usaha dana pelaporan">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>07</span><b>KEU</b></div><h3>Keuangan</h3><p>Pengelolaan teknis anggaran, administrasi transaksi, pengembangan dana, dan laporan keuangan.</p><small>Anggaran · Pencatatan · Dana</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/menteri.jpg" data-initials="KEU" data-label="Menteri" alt="Foto Menteri Keuangan"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Keuangan"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Keuangan"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Keuangan"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Keuangan"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/07-keuangan/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Keuangan"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal reveal-delay-1" data-search="pendidikan profesi akademik belajar karier kedokteran">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>08</span><b>PENDPRO</b></div><h3>Pendidikan dan Profesi</h3><p>Pendampingan akademik, pengembangan profesi, informasi pendidikan, dan kebutuhan pembelajaran.</p><small>Akademik · Profesi · Karier</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/menteri.jpg" data-initials="PEND" data-label="Menteri" alt="Foto Menteri Pendidikan dan Profesi"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Pendidikan dan Profesi"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Pendidikan dan Profesi"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Pendidikan dan Profesi"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Pendidikan dan Profesi"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/08-pendidikan-profesi/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Pendidikan dan Profesi"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal reveal-delay-2" data-search="pengabdian masyarakat pengmas kesehatan sosial desa">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>09</span><b>PENGMAS</b></div><h3>Pengabdian Masyarakat</h3><p>Perencanaan intervensi kesehatan, penguatan komunitas, edukasi publik, dan aksi sosial.</p><small>Kesehatan · Komunitas · Sosial</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/menteri.jpg" data-initials="PENG" data-label="Menteri" alt="Foto Menteri Pengabdian Masyarakat"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Pengabdian Masyarakat"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Pengabdian Masyarakat"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Pengabdian Masyarakat"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Pengabdian Masyarakat"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/09-pengabdian-masyarakat/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Pengabdian Masyarakat"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="ministry-card reveal" data-search="pengabdian minat bakat olahraga seni kreativitas komunitas">
-            <div class="ministry-card-head">
-              <div class="ministry-top"><span>10</span><b>PMB</b></div><h3>Pengabdian Minat dan Bakat</h3><p>Fasilitasi olahraga, seni, kreativitas, komunitas, serta aktualisasi potensi mahasiswa.</p><small>Olahraga · Seni · Kreativitas</small>
-            </div>
-            <div class="ministry-team">
-              <div class="minister-profile">
-                <div class="minister-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/menteri.jpg" data-initials="PMB" data-label="Menteri" alt="Foto Menteri Pengabdian Minat dan Bakat"></div>
-                <div class="minister-copy"><span>Menteri</span><h4>Nama Menteri</h4><p>Penanggung jawab utama arah kerja dan koordinasi internal kementerian.</p></div>
-              </div>
-              <div class="member-heading"><strong>Anggota Kementerian</strong><span>5 slot foto</span></div>
-              <div class="member-grid">
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/anggota-01.jpg" data-initials="A1" data-label="Anggota" alt="Foto anggota 1 Kementerian Pengabdian Minat dan Bakat"></div>
-                  <strong>Nama Anggota 01</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/anggota-02.jpg" data-initials="A2" data-label="Anggota" alt="Foto anggota 2 Kementerian Pengabdian Minat dan Bakat"></div>
-                  <strong>Nama Anggota 02</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/anggota-03.jpg" data-initials="A3" data-label="Anggota" alt="Foto anggota 3 Kementerian Pengabdian Minat dan Bakat"></div>
-                  <strong>Nama Anggota 03</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/anggota-04.jpg" data-initials="A4" data-label="Anggota" alt="Foto anggota 4 Kementerian Pengabdian Minat dan Bakat"></div>
-                  <strong>Nama Anggota 04</strong><small>Anggota</small>
-                </div>
-                <div class="member-card">
-                  <div class="member-photo photo-slot"><img data-photo-src="assets/img/pengurus/kementerian/10-minat-bakat/anggota-05.jpg" data-initials="A5" data-label="Anggota" alt="Foto anggota 5 Kementerian Pengabdian Minat dan Bakat"></div>
-                  <strong>Nama Anggota 05</strong><small>Anggota</small>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-        <p class="empty-state" id="ministry-empty" hidden>Tidak ada kementerian yang cocok dengan pencarian.</p>
-        <div class="photo-guide reveal"><b>Struktur folder foto</b><span>Setiap slot telah diarahkan ke <code>assets/img/pengurus/</code>. Saat file foto ditempatkan sesuai nama yang tercantum pada atribut sumber, placeholder otomatis berubah menjadi foto pengurus tanpa perlu mengubah desain halaman.</span></div>
-      </div>
-    </section>
+  if (institutionGrid) {
+    institutionGrid.innerHTML = institutions.map((item, index) => `
+      <article class="support-card reveal">
+        <span>${escapeHtml(item.code || `LK${String(index + 1).padStart(2, "0")}`)}</span>
+        <h3>${escapeHtml(item.name || "Lembaga Khusus")}</h3>
+        <p>${escapeHtml(item.description || "")}</p>
+      </article>
+    `).join("");
+  }
 
-    <section class="section" id="pendukung">
-      <div class="container">
-        <div class="section-heading reveal"><div><div class="eyebrow"><span></span>Struktur Pendukung</div><h2>Komponen generik yang dapat disesuaikan dengan ketetapan organisasi.</h2></div><p>Bagian ini disiapkan sebagai kerangka awal. Nama, kedudukan, serta kewenangannya perlu disesuaikan dengan AD/ART, pedoman organisasi, dan keputusan resmi BEM KEMA FK Unhas.</p></div>
-        <div class="support-grid">
-          <article class="support-card reveal"><span>01</span><h3>Staf Ahli Presidium</h3><p>Memberikan masukan substantif pada isu strategis dan membantu proyek lintas kementerian.</p></article>
-          <article class="support-card reveal reveal-delay-1"><span>02</span><h3>Badan Pengawasan Internal</h3><p>Memantau kepatuhan prosedur, mutu dokumentasi, dan konsistensi pelaporan kinerja.</p></article>
-          <article class="support-card reveal reveal-delay-2"><span>03</span><h3>Koordinator Program Strategis</h3><p>Mengelola program prioritas yang melibatkan beberapa kementerian dan mitra eksternal.</p></article>
-          <article class="support-card reveal"><span>04</span><h3>Staf Kementerian</h3><p>Menjalankan fungsi teknis, operasional, komunikasi, dan evaluasi pada masing-masing bidang.</p></article>
-          <article class="support-card reveal reveal-delay-1"><span>05</span><h3>Tim Ad Hoc</h3><p>Dibentuk untuk kebutuhan tertentu dengan mandat, target, dan periode kerja yang terbatas.</p></article>
-          <article class="support-card reveal reveal-delay-2"><span>06</span><h3>Forum Koordinasi</h3><p>Ruang sinkronisasi rutin antara presidium, kementerian, dan unsur kelembagaan mahasiswa.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--soft">
-      <div class="container responsibility-panel reveal">
-        <div><div class="eyebrow"><span></span>Akuntabilitas Jabatan</div><h2>Setiap posisi harus memiliki keluaran yang dapat dievaluasi.</h2></div>
-        <div class="responsibility-list">
-          <div><span>01</span><p><strong>Mandat tertulis</strong> Tugas pokok dan batas kewenangan terdokumentasi.</p></div>
-          <div><span>02</span><p><strong>Indikator kinerja</strong> Target program, jadwal, dan hasil dapat diukur.</p></div>
-          <div><span>03</span><p><strong>Pelaporan berkala</strong> Progres, kendala, dan penggunaan sumber daya dilaporkan.</p></div>
-          <div><span>04</span><p><strong>Evaluasi dan perbaikan</strong> Temuan evaluasi diterjemahkan menjadi tindak lanjut nyata.</p></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand"><div class="footer-logos"><img src="assets/img/logo-unhas.png" alt="Logo Universitas Hasanuddin"><img src="assets/img/logo-kema.png" alt="Logo KEMA FK Unhas"><img src="assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis"></div><h3>BEM KEMA FK UNHAS</h3><p>Kabinet Metamorfosis 2026</p><small>Fakultas Kedokteran Universitas Hasanuddin, Makassar</small></div>
-      <div><h4>Navigasi</h4><a href="index.html">Beranda</a><a href="struktur.html">Struktur Kabinet</a><a href="mkpk.html">Simulator MKPK</a><a href="transparansi.html">Transparansi</a><a href="aspirasi.html">Aspirasi</a></div>
-      <div><h4>Layanan</h4><a href="aspirasi.html#form-aspirasi">Pengaduan Mahasiswa</a><a href="transparansi.html#dokumen">Dokumen Publik</a><a href="index.html#agenda">Kalender Kegiatan</a><a href="mailto:bemfk@unhas.ac.id">Kemitraan</a></div>
-      <div><h4>Kontak</h4><a href="mailto:bemfk@unhas.ac.id">bemfk@unhas.ac.id</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">YouTube</a></div>
-    </div>
-    <div class="container footer-bottom"><span>© 2026 BEM KEMA FK Unhas. Seluruh hak cipta dilindungi.</span><span>Dirancang untuk tata kelola yang terbuka.</span></div>
-  </footer>
-  <script src="assets/js/main.js"></script>
-
-  <script>
+  const overviewLabel = document.getElementById("special-institution-overview-label");
+  const overviewCopy = document.getElementById("special-institution-overview-copy");
+  if (overviewLabel) overviewLabel.textContent = institutions.length ? `${institutions.length} Lembaga Khusus` : "Lembaga Khusus";
+  if (overviewCopy) overviewCopy.textContent = institutions.length
+    ? "Unit khusus yang mendukung fungsi dan kebutuhan spesifik organisasi"
+    : "Belum ada lembaga khusus yang ditetapkan";
+})();
+</script><script>
     (() => {
       const escapeXml = (value) => String(value || '').replace(/[&<>"']/g, (character) => ({
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;'
@@ -718,5 +916,6 @@
       });
     })();
   </script>
+<script src="assets/js/admin-public.js"></script>
 </body>
 </html>

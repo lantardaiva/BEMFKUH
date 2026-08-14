@@ -1,171 +1,158 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Simulator perhitungan rekognisi Mata Kuliah Penguatan Kompetensi (MKPK) berdasarkan Rubrik MKPK Edisi III Universitas Hasanuddin.">
-  <title>Simulator MKPK | BEM KEMA FK Unhas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Simulator perhitungan rekognisi Mata Kuliah Penguatan Kompetensi (MKPK) berdasarkan Rubrik MKPK Edisi III Universitas Hasanuddin." name="description"/>
+<title>Simulator MKPK | BEM KEMA FK Unhas</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
 </head>
 <body data-page="mkpk">
-  <a class="skip-link" href="#main">Lewati ke konten utama</a>
-  <div class="utility-bar">
-    <div class="container utility-inner">
-      <span>Universitas Hasanuddin</span><span class="utility-dot"></span><span>Keluarga Mahasiswa Fakultas Kedokteran</span>
-      <a href="assets/docs/rubrik-mkpk-edisi-3.pdf" target="_blank" rel="noopener">Rubrik MKPK Edisi III ↗</a>
-    </div>
-  </div>
-
-  <header class="site-header" id="site-header">
-    <div class="container header-inner">
-      <a class="brand-lockup" href="index.html" aria-label="BEM KEMA FK Unhas, kembali ke beranda">
-        <span class="brand-logo brand-logo--unhas"><img src="assets/img/logo-unhas.png" alt="Logo Universitas Hasanuddin"></span>
-        <span class="brand-connector">›</span>
-        <span class="brand-logo brand-logo--kema"><img src="assets/img/logo-kema.png" alt="Logo KEMA FK Unhas"></span>
-        <span class="brand-connector">›</span>
-        <span class="brand-logo brand-logo--cabinet"><img src="assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis"></span>
-        <span class="brand-copy"><strong>BEM KEMA FK UNHAS</strong><small>Kabinet Metamorfosis 2026</small></span>
-      </a>
-      <button class="nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
-      <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama">
-        <a href="index.html" data-nav="home">Beranda</a><a href="index.html#tentang">Tentang</a><a href="struktur.html" data-nav="struktur">Struktur</a><a href="index.html#program">Program</a><a href="mkpk.html" data-nav="mkpk">MKPK</a><a href="transparansi.html" data-nav="transparansi">Transparansi</a><a href="aspirasi.html" class="nav-cta" data-nav="aspirasi">Sampaikan Aspirasi</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="page-hero page-hero--mkpk">
-      <div class="page-hero-pattern"></div>
-      <div class="container mkpk-hero-grid">
-        <div class="reveal">
-          <div class="eyebrow eyebrow--light"><span></span>Academic Tools</div>
-          <h1>Simulator Rekognisi MKPK</h1>
-          <p>Hitung estimasi SKS dari aktivitas kemahasiswaan secara interaktif. Pertanyaan akan berubah sesuai kegiatan yang dipilih, sehingga Anda hanya mengisi parameter yang memang relevan.</p>
-          <div class="mkpk-hero-actions">
-            <a class="button button--light" href="#simulator">Mulai Simulasi</a>
-            <a class="button mkpk-button-outline" href="assets/docs/rubrik-mkpk-edisi-3.pdf" target="_blank" rel="noopener">Buka Rubrik Resmi ↗</a>
-          </div>
-        </div>
-        <div class="mkpk-hero-panel reveal reveal-delay-1">
-          <div class="mkpk-hero-metric"><small>Klaster mahasiswa</small><strong>8</strong></div>
-          <div class="mkpk-hero-metric"><small>Basis activity hours</small><strong>2.700 <em>menit/SKS</em></strong></div>
-          <div class="mkpk-hero-metric"><small>Sumber</small><strong>Edisi III <em>Des 2025</em></strong></div>
-          <div class="mkpk-hero-lines" aria-hidden="true"><i></i><i></i><i></i></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="mkpk-disclaimer">
-      <div class="container">
-        <div class="mkpk-alert reveal">
-          <span class="mkpk-alert-icon">i</span>
-          <div><strong>Simulator informatif, bukan keputusan akademik.</strong><p>Hasil adalah estimasi berdasarkan Rubrik MKPK Edisi III. Rekognisi resmi tetap memerlukan validasi dokumen, eligibility, serta persetujuan pihak Universitas/Fakultas. Kegiatan berbasis fakultas yang memerlukan kurasi universitas tidak dimasukkan.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section mkpk-simulator-section" id="simulator">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div><div class="eyebrow"><span></span>Simulasi Interaktif</div><h2>Pilih kegiatan. Isi capaian. Lihat estimasinya.</h2></div>
-          <p>Simulator memprioritaskan aktivitas kemahasiswaan yang tercantum dalam rubrik, mulai dari kompetisi dan organisasi hingga publikasi, pengabdian, serta pengembangan minat dan bakat.</p>
-        </div>
-
-        <div class="mkpk-workspace">
-          <div class="mkpk-builder reveal">
-            <div class="mkpk-step">
-              <div class="mkpk-step-head"><span>01</span><div><strong>Pilih klaster kegiatan</strong><small>Mulai dari jenis aktivitas yang paling sesuai.</small></div></div>
-              <div class="mkpk-category-grid" id="mkpk-category-grid"></div>
-            </div>
-
-            <div class="mkpk-step mkpk-step--locked" id="activity-step">
-              <div class="mkpk-step-head"><span>02</span><div><strong>Pilih kegiatan</strong><small>Cari atau pilih aktivitas dari rubrik.</small></div></div>
-              <div class="mkpk-activity-picker">
-                <label class="mkpk-search-field" for="mkpk-search"><span>Cari kegiatan</span><div><b>⌕</b><input id="mkpk-search" type="search" placeholder="Contoh: kepengurusan, seminar, PKM..." autocomplete="off"></div></label>
-                <div class="mkpk-activity-list" id="mkpk-activity-list" role="listbox" aria-label="Daftar kegiatan"></div>
-              </div>
-            </div>
-
-            <div class="mkpk-step mkpk-step--locked" id="detail-step">
-              <div class="mkpk-step-head"><span>03</span><div><strong>Sesuaikan detail capaian</strong><small id="detail-caption">Pertanyaan mengikuti ketentuan kegiatan.</small></div></div>
-              <div class="mkpk-selected-activity" id="selected-activity" hidden></div>
-              <form id="mkpk-detail-form" class="mkpk-detail-form"></form>
-            </div>
-
-            <div class="mkpk-action-row">
-              <button class="button button--ghost" id="mkpk-reset" type="button">Reset</button>
-              <button class="button button--primary" id="mkpk-calculate" type="button" disabled>Hitung Simulasi</button>
-            </div>
-          </div>
-
-          <aside class="mkpk-result-panel reveal reveal-delay-1" id="mkpk-result-panel">
-            <div class="mkpk-result-empty" id="mkpk-result-empty">
-              <div class="mkpk-result-symbol">Σ</div><strong>Hasil simulasi akan muncul di sini.</strong><p>Pilih klaster dan kegiatan terlebih dahulu, lalu lengkapi detail yang diminta.</p>
-            </div>
-            <div class="mkpk-result-content" id="mkpk-result-content" hidden>
-              <div class="mkpk-result-kicker">Estimasi hasil</div>
-              <div class="mkpk-result-score"><strong id="result-sks">0.00</strong><span>SKS</span></div>
-              <div class="mkpk-result-status" id="result-status"></div>
-              <div class="mkpk-result-breakdown" id="result-breakdown"></div>
-              <div class="mkpk-result-subtitle">MKPK yang berpotensi direkognisi</div>
-              <div class="mkpk-course-list" id="result-courses"></div>
-              <div class="mkpk-result-subtitle">Dokumen & catatan</div>
-              <div class="mkpk-result-notes" id="result-notes"></div>
-              <button class="button button--primary mkpk-add-plan" id="mkpk-add-plan" type="button">+ Tambahkan ke Rencana Saya</button>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--soft" id="rencana">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div><div class="eyebrow"><span></span>Rencana Saya</div><h2>Gabungkan beberapa kegiatan dalam satu simulasi.</h2></div>
-          <p>Anda dapat menambahkan beberapa aktivitas untuk melihat akumulasi SKS dan irisan MKPK. Akumulasi ini bukan penetapan rekognisi resmi.</p>
-        </div>
-        <div class="mkpk-plan-grid">
-          <div class="mkpk-plan-list reveal" id="mkpk-plan-list"><div class="mkpk-plan-empty" id="mkpk-plan-empty">Belum ada kegiatan yang ditambahkan.</div></div>
-          <div class="mkpk-plan-summary reveal reveal-delay-1">
-            <small>Akumulasi estimasi</small><strong><span id="plan-total">0.00</span> SKS</strong><div class="mkpk-plan-meter"><i id="plan-meter"></i></div><p id="plan-summary-text">Tambahkan kegiatan untuk mulai menyusun rencana rekognisi.</p><button type="button" class="mkpk-text-button" id="clear-plan">Hapus semua kegiatan</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="cara-baca">
-      <div class="container">
-        <div class="section-heading reveal"><div><div class="eyebrow"><span></span>Cara Membaca Hasil</div><h2>Tiga lapis penilaian yang perlu diperhatikan.</h2></div></div>
-        <div class="mkpk-explain-grid">
-          <article class="mkpk-explain-card reveal"><span>01</span><h3>Activity hours</h3><p>Konversi dasar rubrik adalah <strong>1 SKS = 2.700 menit</strong>. Beberapa kegiatan memiliki activity hours baku dan dapat dikalikan koefisien.</p></article>
-          <article class="mkpk-explain-card reveal reveal-delay-1"><span>02</span><h3>Koefisien & capaian</h3><p>Peran, cakupan, durasi, prestasi, tingkat partisipasi, atau mutu luaran dapat mengubah jumlah SKS maupun nilai capaian.</p></article>
-          <article class="mkpk-explain-card reveal reveal-delay-2"><span>03</span><h3>MKPK tujuan</h3><p>Setiap kegiatan hanya dapat diarahkan ke MKPK tertentu. Secara umum, mata kuliah 2 SKS membutuhkan akumulasi yang cukup sebelum nilai mutu dapat direkognisi.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--dark mkpk-source">
-      <div class="container mkpk-source-grid">
-        <div class="reveal"><div class="eyebrow eyebrow--light"><span></span>Sumber Perhitungan</div><h2>Rubrik MKPK Edisi III</h2><p>Basis simulator berasal dari Rubrik Penilaian Mata Kuliah Penguatan Kompetensi Edisi III, Bidang Akademik dan Kemahasiswaan Universitas Hasanuddin.</p></div>
-        <div class="mkpk-source-card reveal reveal-delay-1"><span>Dokumen acuan</span><strong>Rubrik Penilaian MKPK</strong><small>Edisi III · Desember 2025</small><a class="button button--light" href="assets/docs/rubrik-mkpk-edisi-3.pdf" target="_blank" rel="noopener">Lihat PDF Resmi</a></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" id="kontak">
-    <div class="container footer-grid">
-      <div class="footer-brand"><div class="footer-logos"><img src="assets/img/logo-unhas.png" alt="Logo Universitas Hasanuddin"><img src="assets/img/logo-kema.png" alt="Logo KEMA FK Unhas"><img src="assets/img/logo-metamorfosis.png" alt="Logo Kabinet Metamorfosis"></div><h3>BEM KEMA FK UNHAS</h3><p>Kabinet Metamorfosis 2026</p><small>Fakultas Kedokteran Universitas Hasanuddin, Makassar</small></div>
-      <div><h4>Navigasi</h4><a href="index.html">Beranda</a><a href="struktur.html">Struktur Kabinet</a><a href="mkpk.html">Simulator MKPK</a><a href="transparansi.html">Transparansi</a><a href="aspirasi.html">Aspirasi</a></div>
-      <div><h4>Layanan</h4><a href="aspirasi.html#form-aspirasi">Pengaduan Mahasiswa</a><a href="transparansi.html#dokumen">Dokumen Publik</a><a href="mkpk.html">Simulasi MKPK</a><a href="mailto:bemfk@unhas.ac.id">Kemitraan</a></div>
-      <div><h4>Kontak</h4><a href="mailto:bemfk@unhas.ac.id">bemfk@unhas.ac.id</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">YouTube</a></div>
-    </div>
-    <div class="container footer-bottom"><span>© 2026 BEM KEMA FK Unhas. Seluruh hak cipta dilindungi.</span><span>Simulator bersifat informatif.</span></div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/mkpk.js"></script>
+<a class="skip-link" href="#main">Lewati ke konten utama</a>
+<div class="utility-bar">
+<div class="container utility-inner">
+<span>Universitas Hasanuddin</span><span class="utility-dot"></span><span>Keluarga Mahasiswa Fakultas Kedokteran</span>
+<a href="assets/docs/rubrik-mkpk-edisi-3.pdf" rel="noopener" target="_blank">Rubrik MKPK Edisi III ↗</a>
+</div>
+</div>
+<header class="site-header" id="site-header">
+<div class="container header-inner">
+<a aria-label="BEM KEMA FK Unhas, kembali ke beranda" class="brand-lockup" href="index.html">
+<span class="brand-logo brand-logo--unhas"><img alt="Logo Universitas Hasanuddin" src="assets/img/logo-unhas.png"/></span>
+<span class="brand-connector">›</span>
+<span class="brand-logo brand-logo--kema"><img alt="Logo KEMA FK Unhas" src="assets/img/logo-kema.png"/></span>
+<span class="brand-connector">›</span>
+<span class="brand-logo brand-logo--cabinet"><img alt="Logo Kabinet Metamorfosis" src="assets/img/logo-metamorfosis.png"/></span>
+<span class="brand-copy"><strong>BEM KEMA FK UNHAS</strong><small>Kabinet Metamorfosis 2026</small></span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Buka menu navigasi" class="nav-toggle" type="button"><span></span><span></span><span></span></button>
+<nav aria-label="Navigasi utama" class="primary-nav" id="primary-nav">
+<a data-nav="home" href="index.html">Beranda</a><a href="index.html#tentang">Tentang</a><a data-nav="struktur" href="struktur.html">Struktur</a><a href="index.html#program">Program</a><a data-nav="mkpk" href="mkpk.html">MKPK</a><a data-nav="transparansi" href="transparansi.html">Transparansi</a><a class="nav-cta" data-nav="aspirasi" href="aspirasi.html">Sampaikan Aspirasi</a>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="page-hero page-hero--mkpk">
+<div class="page-hero-pattern"></div>
+<div class="container mkpk-hero-grid">
+<div class="reveal">
+<div class="eyebrow eyebrow--light"><span></span>Academic Tools</div>
+<h1>Simulator Rekognisi MKPK</h1>
+<p>Hitung estimasi SKS dari aktivitas kemahasiswaan secara interaktif. Pertanyaan akan berubah sesuai kegiatan yang dipilih, sehingga Anda hanya mengisi parameter yang memang relevan.</p>
+<div class="mkpk-hero-actions">
+<a class="button button--light" href="#simulator">Mulai Simulasi</a>
+<a class="button mkpk-button-outline" href="assets/docs/rubrik-mkpk-edisi-3.pdf" rel="noopener" target="_blank">Buka Rubrik Resmi ↗</a>
+</div>
+</div>
+<div class="mkpk-hero-panel reveal reveal-delay-1">
+<div class="mkpk-hero-metric"><small>Klaster mahasiswa</small><strong>8</strong></div>
+<div class="mkpk-hero-metric"><small>Basis activity hours</small><strong>2.700 <em>menit/SKS</em></strong></div>
+<div class="mkpk-hero-metric"><small>Sumber</small><strong>Edisi III <em>Des 2025</em></strong></div>
+<div aria-hidden="true" class="mkpk-hero-lines"><i></i><i></i><i></i></div>
+</div>
+</div>
+</section>
+<section class="mkpk-disclaimer">
+<div class="container">
+<div class="mkpk-alert reveal">
+<span class="mkpk-alert-icon">i</span>
+<div><strong>Simulator informatif, bukan keputusan akademik.</strong><p>Hasil adalah estimasi berdasarkan Rubrik MKPK Edisi III. Rekognisi resmi tetap memerlukan validasi dokumen, eligibility, serta persetujuan pihak Universitas/Fakultas. Kegiatan berbasis fakultas yang memerlukan kurasi universitas tidak dimasukkan.</p></div>
+</div>
+</div>
+</section>
+<section class="section mkpk-simulator-section" id="simulator">
+<div class="container">
+<div class="section-heading reveal">
+<div><div class="eyebrow"><span></span>Simulasi Interaktif</div><h2>Pilih kegiatan. Isi capaian. Lihat estimasinya.</h2></div>
+<p>Simulator memprioritaskan aktivitas kemahasiswaan yang tercantum dalam rubrik, mulai dari kompetisi dan organisasi hingga publikasi, pengabdian, serta pengembangan minat dan bakat.</p>
+</div>
+<div class="mkpk-workspace">
+<div class="mkpk-builder reveal">
+<div class="mkpk-step">
+<div class="mkpk-step-head"><span>01</span><div><strong>Pilih klaster kegiatan</strong><small>Mulai dari jenis aktivitas yang paling sesuai.</small></div></div>
+<div class="mkpk-category-grid" id="mkpk-category-grid"></div>
+</div>
+<div class="mkpk-step mkpk-step--locked" id="activity-step">
+<div class="mkpk-step-head"><span>02</span><div><strong>Pilih kegiatan</strong><small>Cari atau pilih aktivitas dari rubrik.</small></div></div>
+<div class="mkpk-activity-picker">
+<label class="mkpk-search-field" for="mkpk-search"><span>Cari kegiatan</span><div><b>⌕</b><input autocomplete="off" id="mkpk-search" placeholder="Contoh: kepengurusan, seminar, PKM..." type="search"/></div></label>
+<div aria-label="Daftar kegiatan" class="mkpk-activity-list" id="mkpk-activity-list" role="listbox"></div>
+</div>
+</div>
+<div class="mkpk-step mkpk-step--locked" id="detail-step">
+<div class="mkpk-step-head"><span>03</span><div><strong>Sesuaikan detail capaian</strong><small id="detail-caption">Pertanyaan mengikuti ketentuan kegiatan.</small></div></div>
+<div class="mkpk-selected-activity" hidden="" id="selected-activity"></div>
+<form class="mkpk-detail-form" id="mkpk-detail-form"></form>
+</div>
+<div class="mkpk-action-row">
+<button class="button button--ghost" id="mkpk-reset" type="button">Reset</button>
+<button class="button button--primary" disabled="" id="mkpk-calculate" type="button">Hitung Simulasi</button>
+</div>
+</div>
+<aside class="mkpk-result-panel reveal reveal-delay-1" id="mkpk-result-panel">
+<div class="mkpk-result-empty" id="mkpk-result-empty">
+<div class="mkpk-result-symbol">Σ</div><strong>Hasil simulasi akan muncul di sini.</strong><p>Pilih klaster dan kegiatan terlebih dahulu, lalu lengkapi detail yang diminta.</p>
+</div>
+<div class="mkpk-result-content" hidden="" id="mkpk-result-content">
+<div class="mkpk-result-kicker">Estimasi hasil</div>
+<div class="mkpk-result-score"><strong id="result-sks">0.00</strong><span>SKS</span></div>
+<div class="mkpk-result-status" id="result-status"></div>
+<div class="mkpk-result-breakdown" id="result-breakdown"></div>
+<div class="mkpk-result-subtitle">MKPK yang berpotensi direkognisi</div>
+<div class="mkpk-course-list" id="result-courses"></div>
+<div class="mkpk-result-subtitle">Dokumen &amp; catatan</div>
+<div class="mkpk-result-notes" id="result-notes"></div>
+<button class="button button--primary mkpk-add-plan" id="mkpk-add-plan" type="button">+ Tambahkan ke Rencana Saya</button>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<section class="section section--soft" id="rencana">
+<div class="container">
+<div class="section-heading reveal">
+<div><div class="eyebrow"><span></span>Rencana Saya</div><h2>Gabungkan beberapa kegiatan dalam satu simulasi.</h2></div>
+<p>Anda dapat menambahkan beberapa aktivitas untuk melihat akumulasi SKS dan irisan MKPK. Akumulasi ini bukan penetapan rekognisi resmi.</p>
+</div>
+<div class="mkpk-plan-grid">
+<div class="mkpk-plan-list reveal" id="mkpk-plan-list"><div class="mkpk-plan-empty" id="mkpk-plan-empty">Belum ada kegiatan yang ditambahkan.</div></div>
+<div class="mkpk-plan-summary reveal reveal-delay-1">
+<small>Akumulasi estimasi</small><strong><span id="plan-total">0.00</span> SKS</strong><div class="mkpk-plan-meter"><i id="plan-meter"></i></div><p id="plan-summary-text">Tambahkan kegiatan untuk mulai menyusun rencana rekognisi.</p><button class="mkpk-text-button" id="clear-plan" type="button">Hapus semua kegiatan</button>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="cara-baca">
+<div class="container">
+<div class="section-heading reveal"><div><div class="eyebrow"><span></span>Cara Membaca Hasil</div><h2>Tiga lapis penilaian yang perlu diperhatikan.</h2></div></div>
+<div class="mkpk-explain-grid">
+<article class="mkpk-explain-card reveal"><span>01</span><h3>Activity hours</h3><p>Konversi dasar rubrik adalah <strong>1 SKS = 2.700 menit</strong>. Beberapa kegiatan memiliki activity hours baku dan dapat dikalikan koefisien.</p></article>
+<article class="mkpk-explain-card reveal reveal-delay-1"><span>02</span><h3>Koefisien &amp; capaian</h3><p>Peran, cakupan, durasi, prestasi, tingkat partisipasi, atau mutu luaran dapat mengubah jumlah SKS maupun nilai capaian.</p></article>
+<article class="mkpk-explain-card reveal reveal-delay-2"><span>03</span><h3>MKPK tujuan</h3><p>Setiap kegiatan hanya dapat diarahkan ke MKPK tertentu. Secara umum, mata kuliah 2 SKS membutuhkan akumulasi yang cukup sebelum nilai mutu dapat direkognisi.</p></article>
+</div>
+</div>
+</section>
+<section class="section section--dark mkpk-source">
+<div class="container mkpk-source-grid">
+<div class="reveal"><div class="eyebrow eyebrow--light"><span></span>Sumber Perhitungan</div><h2>Rubrik MKPK Edisi III</h2><p>Basis simulator berasal dari Rubrik Penilaian Mata Kuliah Penguatan Kompetensi Edisi III, Bidang Akademik dan Kemahasiswaan Universitas Hasanuddin.</p></div>
+<div class="mkpk-source-card reveal reveal-delay-1"><span>Dokumen acuan</span><strong>Rubrik Penilaian MKPK</strong><small>Edisi III · Desember 2025</small><a class="button button--light" href="assets/docs/rubrik-mkpk-edisi-3.pdf" rel="noopener" target="_blank">Lihat PDF Resmi</a></div>
+</div>
+</section>
+</main>
+<footer class="site-footer" id="kontak">
+<div class="container footer-grid">
+<div class="footer-brand"><div class="footer-logos"><img alt="Logo Universitas Hasanuddin" src="assets/img/logo-unhas.png"/><img alt="Logo KEMA FK Unhas" src="assets/img/logo-kema.png"/><img alt="Logo Kabinet Metamorfosis" src="assets/img/logo-metamorfosis.png"/></div><h3>BEM KEMA FK UNHAS</h3><p>Kabinet Metamorfosis 2026</p><small>Fakultas Kedokteran Universitas Hasanuddin, Makassar</small></div>
+<div><h4>Navigasi</h4><a href="index.html">Beranda</a><a href="struktur.html">Struktur Kabinet</a><a href="mkpk.html">Simulator MKPK</a><a href="transparansi.html">Transparansi</a><a href="aspirasi.html">Aspirasi</a></div>
+<div><h4>Layanan</h4><a href="aspirasi.html#form-aspirasi">Pengaduan Mahasiswa</a><a href="transparansi.html#dokumen">Dokumen Publik</a><a href="mkpk.html">Simulasi MKPK</a><a href="mailto:bemfk@unhas.ac.id">Kemitraan</a></div>
+<div><h4>Kontak</h4><a href="mailto:bemfk@unhas.ac.id">bemfk@unhas.ac.id</a><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">YouTube</a><a href="admin/login.html">Administrator</a></div>
+</div>
+<div class="container footer-bottom"><span>© 2026 BEM KEMA FK Unhas. Seluruh hak cipta dilindungi.</span><span>Simulator bersifat informatif.</span></div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/mkpk.js"></script>
 </body>
 </html>

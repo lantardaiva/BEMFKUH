@@ -82,3 +82,13 @@ Jika website lama sudah di-host, cara paling aman adalah mengunggah isi paket re
 - Untuk kegiatan dengan koefisien, form akan meminta parameter yang relevan seperti jabatan, cakupan organisasi, durasi, skala kegiatan, posisi dalam tim, kategori jurnal, atau tingkat partisipasi.
 - Hasil adalah estimasi dan bukan keputusan akademik resmi. Validasi dokumen dan persetujuan pihak universitas/fakultas tetap diperlukan.
 - Beberapa bagian rubrik memiliki contoh simulasi dan tabel rinci yang tidak selalu sepenuhnya konsisten satu sama lain. Simulator menggunakan tabel activity hours/koefisien rinci sebagai basis utama dan menampilkan disclaimer agar hasil tetap diperlakukan sebagai estimasi.
+
+
+## Admin Demo
+
+Buka `admin/login.html`. Kredensial demo:
+
+- Email: `admin@bemkema.demo`
+- Password: `Metamorfosis2026!`
+
+Admin Demo dapat mengelola indikator transparansi, dokumen publik, anggota kementerian, dan lembaga khusus. Data tersimpan di LocalStorage/IndexedDB browser yang sama dan langsung dibaca oleh `transparansi.html` serta `struktur.html`. Sistem login ini **bukan autentikasi produksi**. Untuk deployment publik, ganti dengan backend/Supabase Auth + Database + Storage.
